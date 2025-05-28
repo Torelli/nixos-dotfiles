@@ -78,7 +78,6 @@
       gnome-calculator
       gnome-software # for flatpak
       gnome-disk-utility
-      inputs.zen-browser.packages."${system}"
     ];
   };
 
