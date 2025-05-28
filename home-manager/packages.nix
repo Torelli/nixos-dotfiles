@@ -69,7 +69,6 @@
       corefonts
       grim
       slurp
-      maple-mono.NF
 
       #development
       dbeaver-bin

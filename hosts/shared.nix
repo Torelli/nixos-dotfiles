@@ -72,6 +72,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     source-han-sans
+    maple-mono.NF
   ];
   fonts.fontDir.enable = true;
 
@@ -97,7 +98,6 @@
     };
     fish.enable = true;
   };
-  fonts.fontDir.enable = true;
 
   # services
   services = {
