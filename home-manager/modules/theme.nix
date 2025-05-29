@@ -1,13 +1,12 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }: {
   home = {
     packages = with pkgs; [
       adw-gtk3
-      morewaita-icon-theme
+      colloid-icon-theme
     ];
     pointerCursor = {
       gtk.enable = true;
@@ -47,8 +46,8 @@
       name = "adw-gtk3-dark";
     };
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "MoreWaita";
+      package = pkgs.colloid-icon-theme;
+      name = "Colloid";
     };
     font = {
       name = "Google Sans";

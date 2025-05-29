@@ -58,20 +58,17 @@ in
     ];
   };
 
-  gtk = {
-    iconTheme.name = "Qogir";
-    gtk3.bookmarks = [
-      "file://${homeDirectory}/Documents"
-      "file://${homeDirectory}/Music"
-      "file://${homeDirectory}/Pictures"
-      "file://${homeDirectory}/Videos"
-      "file://${homeDirectory}/Downloads"
-      "file://${homeDirectory}/Desktop"
-      "file://${homeDirectory}/Projects"
-      "file://${homeDirectory}/.config Config"
-      "file://${homeDirectory}/.local/share Local"
-    ];
-  };
+  gtk.gtk3.bookmarks = [
+    "file://${homeDirectory}/Documents"
+    "file://${homeDirectory}/Music"
+    "file://${homeDirectory}/Pictures"
+    "file://${homeDirectory}/Videos"
+    "file://${homeDirectory}/Downloads"
+    "file://${homeDirectory}/Desktop"
+    "file://${homeDirectory}/Projects"
+    "file://${homeDirectory}/.config Config"
+    "file://${homeDirectory}/.local/share Local"
+  ];
 
   services = {
     mpris-proxy.enable = true;
