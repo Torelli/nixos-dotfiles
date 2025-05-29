@@ -50,6 +50,7 @@
   environment = {
     systemPackages = with pkgs; [
       pkgs.distrobox
+      pkgs.flat-remix-icon-theme
       polkit_gnome
       home-manager
       system-config-printer
