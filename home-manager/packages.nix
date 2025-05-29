@@ -8,6 +8,7 @@
       devenv
       clipse
       btop
+      ctop
       fd
       ripgrep
       fzf
@@ -27,11 +28,13 @@
       winetricks
       pamixer
       blueman
+      wayshot
 
       #gui
       onlyoffice-desktopeditors
       lutris
       obs-studio
+      obsidian
       wpsoffice
       zoom-us
       kitty
@@ -39,19 +42,19 @@
       yazi
       mpv
       vesktop
-      zathura
+      evince
       loupe
       simple-scan
-      fragments
       transmission_4-gtk
       ghex
       hiddify-app
-      cassette
       spotify
       kdePackages.qt6ct
       libsForQt5.qt5ct
       zenity
+      zrythm
       inputs.zen-browser.packages."${system}".default
+      satty
 
       #hypr
       inputs.hyprsettings.packages."${pkgs.system}".default
@@ -64,6 +67,7 @@
       wf-recorder
       grimblast
       pavucontrol
+      better-control
       brightnessctl
       swww
       gsettings-desktop-schemas

@@ -93,5 +93,6 @@
       gnome-keyring.enable = true;
       gnome-online-accounts.enable = true;
     };
+    flatpak.enable = true;
   };
 }

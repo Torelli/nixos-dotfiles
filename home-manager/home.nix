@@ -65,7 +65,6 @@ in
     "file://${homeDirectory}/Videos"
     "file://${homeDirectory}/Downloads"
     "file://${homeDirectory}/Desktop"
-    "file://${homeDirectory}/Projects"
     "file://${homeDirectory}/.config Config"
     "file://${homeDirectory}/.local/share Local"
   ];
@@ -91,7 +90,7 @@ in
       "application/pdf" = [ "org.gnome.Evince.desktop" ];
     };
     defaultApplications = {
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+      "application/pdf" = [ "org.gnome.evince.desktop" ];
       "image/bmp" = [ "org.gnome.Loupe.desktop" ];
       "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
       "image/x-png" = [ "org.gnome.Loupe.desktop" ];
