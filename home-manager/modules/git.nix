@@ -2,8 +2,8 @@
   programs.git = {
     enable = true;
     signing.format = "ssh";
-    userName = "Arseniy Knyazev";
-    userEmail = "poseaydone@ya.ru";
+    userName = "Giovanni Torelli";
+    userEmail = "giovanni.walter@outlook.com";
   };
   programs.gh = {
     enable = true;
