@@ -174,7 +174,7 @@
 
   # network
   networking = {
-    hostName = "torelli-laptop";
+    hostName = "nixos";
     networkmanager.enable = true;
   };
 
