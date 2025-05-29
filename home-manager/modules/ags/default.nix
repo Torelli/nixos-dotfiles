@@ -18,6 +18,7 @@
     configDir = ../ags;
     extraPackages = [
       pkgs.libsoup_3
+      pkgs.adw-gtk3
       pkgs.gtksourceview
       pkgs.libnotify
       pkgs.webkitgtk_4_1
