@@ -48,5 +48,5 @@ in
 
   home.file."~/.config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 
-  home.file."~/.config/hypr/hypridle.conf".text = ./hypridle.conf;
+  home.file."~/.config/hypr/hypridle.conf".source = ./hypridle.conf;
 }
