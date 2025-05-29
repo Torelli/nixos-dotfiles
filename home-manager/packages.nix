@@ -57,6 +57,7 @@
       inputs.hyprsettings.packages."${pkgs.system}".default
       socat # for monitor connect script
       hyprpicker
+      hyprshade
       hypridle
       wl-gammactl
       wl-clipboard
