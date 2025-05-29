@@ -1,8 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs
+, pkgs
+, ...
+}:
+let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
   swww = pkgs.writeShellScript "swww" ''
@@ -10,10 +10,10 @@
   '';
 
   monitor_connect = pkgs.writeShellScript "monitor_connect" ''
-    handle() {
-      ${builtins.readFile ./bin/handle_monitor_connect.sh}
+    ${builtins.readFile ./bin/handle_monitor_connect.sh}
   '';
-in {
+in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     package = hyprland;
