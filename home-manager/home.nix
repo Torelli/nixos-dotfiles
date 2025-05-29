@@ -16,7 +16,6 @@ in
     ./modules/chromium.nix
     ./modules/nvim
     ./modules/hyprland
-    ./modules/matugen
   ];
 
   dconf = {
