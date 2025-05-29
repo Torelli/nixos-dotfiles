@@ -1,110 +1,183 @@
-@use "sass:string";
+@use "sass:color";
+@use "sass:math";
+@use "sass:list";
 @use "colors.scss" as *;
-$icon-size: 60px;
-$border-radius: 6px;
-.notification {
-  padding: 14px 16px 14px 20px;
+
+$window-border-radius: 6px 6px 6px 6px;
+
+.notifications-container {
+  border-radius: 30px 0 0 30px;
+  min-width: 400px;
+  min-height: 400px;
+  // padding: 10px 10px 0;
   color: $on_surface;
+  padding: 12px;
   background-color: $surface_transparent;
+
+  separator {
+    margin: 2px;
+    // background-color: $inverse_surface_transparent;
+    // color: $inverse_surface_transparent;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .window-header {
+    margin-top: 6px;
+    margin-bottom: 10px;
+    // color: $on_surface;
+    padding-bottom: 0;
+
+    .clear {
+      // padding: 0.1rem;
+      // padding-top: 0.2rem;
+      // padding-bottom: 0.3rem;
+      // padding: 1px;
+      padding-right: 0.8rem;
+      border-radius: 12px;
+      min-width: 10px;
+      min-height: 30px;
+      color: $on_surface;
+      // background: $inverse_surface_transparent;
+      &:hover {
+        color: $primary;
+        label {
+          color: $primary;
+        }
+      }
+      label {
+        font-size: 1.1rem;
+        color: $on_surface;
+      }
+    }
+
+    label {
+      margin-left: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: $on_surface;
+    }
+  }
+
+  scrolledwindow viewport > box {
+    .not-found label {
+      font-size: 1rem;
+      color: $on_surface;
+    }
+
+    margin: 10px;
+    margin-top: 1px;
+  }
+
+  .notification-container {
+    min-width: 1px;
+    border-radius: 20px;
+    margin: 0px;
+    background: $inverse_surface_transparent;
+    box-shadow: none;
+  }
+}
+
+.notification-container {
+  padding: 8px 16px 14px 20px;
+  min-width: 380px;
   border-radius: 20px;
-  .app-icon {
-    // -gtk-icon-size: $icon-size;
-    min-width: $icon-size;
-    min-height: $icon-size;
-    padding: 8px; // 可选：添加内边距使图标不那么贴边
+  // margin-bottom: 10px;
+  background: $surface_transparent;
+
+  &.critical {
+    box-shadow: 0 0 0 0.1rem $red;
   }
-}
 
-.notification__icon {
-  min-height: 60px;
-  min-width: 60px;
-  margin-right: 14px;
-  margin-top: 8px;
-  border-radius: 100px;
-  background: $inverse_surface_transparent;
-}
+  .header {
+    font-size: 12px;
+    color: $on_surface;
 
-.notification__icon.telegram {
-  min-height: 60px;
-  min-width: 60px;
-  margin-right: 14px;
-  margin-top: 8px;
-  border-radius: 100px;
-  background: $inverse_surface_transparent;
-}
+    .time {
+      margin-right: 0.5rem;
+      font-size: 12px;
+      color: $on_surface;
+    }
 
-.notification__title {
-  font-size: 15px;
-  font-weight: 500;
-}
+    .app-icon {
+      margin-right: 0.5rem;
+    }
 
-.notification__header {
-  margin-top: 6px;
-  margin-bottom: 10px;
-}
+    .app-name {
+      color: $on_surface;
+      // margin-left: 0.1rem;
+    }
 
-.notification__app-name,
-.notification__dot,
-.notification__time {
-  color: $on_surface_variant;
-  font-size: 12px;
-  font-weight: 400;
-}
+    button {
+      padding: 0 0.3rem;
+      background-color: $inverse_surface_transparent;
+      color: $on_surface;
+      border-radius: 100px;
 
-.notification__description {
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.notification__actions {
-  margin-top: 8px;
-}
-
-.notification__action {
-  background: none;
-  transition: color 0.1s ease-in-out;
-  color: $primary;
-  border-radius: 100px;
-  &:hover {
-    color: $on_primary_container;
-    transition: color 0.1s ease-in-out;
+      &:hover {
+        color: $on_primary_fixed;
+        background-color: $primary_fixed;
+      }
+    }
   }
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-}
 
-.notification__close-button {
-  padding: 0;
-  min-width: 22px;
-  min-height: 22px;
-  border-radius: 100px;
-  background-color: $surface_container_highest;
-  color: $on_surface;
-  font-size: 16px;
-  transition:
-    background-color 0.2s ease-in-out,
-    color 0.2s ease-in-out;
-  &:hover {
-    background: $primary_fixed;
-    color: $on_primary_fixed;
+  separator {
+    margin: 0.2rem 0;
+    background-color: $inverse_surface_transparent;
+    color: $inverse_surface_transparent;
   }
-}
-.image {
-  border: 1px solid;
-  margin-right: 0.5rem;
-  border-radius: 9px;
-  min-width: 100px;
-  min-height: 100px;
-  background-size: cover;
-  background-position: center;
-}
-.app-icon {
-  min-height: 60px;
-  min-height: 60px;
-  background-size: cover;
+
+  .content {
+    margin-bottom: 0.3rem;
+
+    .summary {
+      margin-left: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: $on_surface;
+      font-weight: 700;
+    }
+
+    .body {
+      font-size: 1rem;
+      margin-left: 0.5rem;
+      color: $on_surface;
+      font-weight: 400;
+    }
+
+    .image image {
+      // border-radius: 100px;
+      border-radius: 10px;
+      min-width: 70px;
+      min-height: 70px;
+      margin-right: 14px;
+      margin-top: 8px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .actions {
+    // margin-top: 0.5rem;
+    button {
+      background: none;
+      transition: color 0.1s ease-in-out;
+      color: $primary;
+      border-radius: 100px;
+
+      &:hover {
+        color: $on_primary_container;
+        transition: color 0.1s ease-in-out;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }

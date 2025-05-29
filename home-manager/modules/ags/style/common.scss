@@ -12,6 +12,51 @@
   -gtk-icon-shadow: none;
 }
 
+// GTK日历特定样式
+calendar {
+  // color: $on_surface;
+  // font-size: 1.1em;
+  // padding: 0.5em;
+  // 日历网格样式
+  &.view {
+    background-color: transparent;
+    // border-radius: 12px;
+    // padding: 0.5rem;
+  }
+
+  // 当前日期样式
+  &:selected {
+    // box-shadow:
+    //   inset 0 -0.2em 0 0 $primary,
+    //   inset -0.4em -0.3em 0 0 transparent,
+    //   inset 0.4em 0 0 0.01em transparent;
+    background-color: transparent;
+    color: $primary;
+    // padding: 0.5rem; // 调整 padding 以使按钮居中
+    // border-radius: 100%;
+  }
+
+  // 日期悬停样式
+  // &:hover {
+  //   color: $primary;
+  //   // border-radius: 7.143rem;
+  // }
+
+  // &:botton {
+  //   color: $primary;
+  // }
+
+  // 周和星期样式
+  &.highlight {
+    color: $primary;
+    // font-weight: bold;
+  }
+
+  // 非当前月份的日期样式
+  &:indeterminate {
+    color: color.scale($on_surface, $alpha: -35%);
+  }
+}
 icon {
   box-shadow: none;
   text-shadow: none;
@@ -76,8 +121,12 @@ window.popup {
 }
 
 switch {
-  border: 2px solid $outline;
-  border-radius: 100px;
+  // border: 2px solid $outline;
+  // min-width: 45px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 4px;
+  border-radius: 15px;
   background-color: $surface_container_highest;
 }
 
@@ -87,22 +136,17 @@ switch slider {
   background-color: $outline;
 }
 
-switch:hover slider,
-switch:active slider {
+switch:active slider,
+switch:hover slider {
   background-color: $on_surface_variant;
 }
 
 switch:active {
-  background-color: color.mix(
-    $surface_container_highest,
-    $on_surface,
-    0.08 * 1%
-  );
+  background-color: $on_surface_variant;
 }
 
 switch:checked {
   background-color: $primary;
-  border: 2px solid $primary;
 }
 
 switch:checked slider {

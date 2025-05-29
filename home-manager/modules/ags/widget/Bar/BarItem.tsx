@@ -1,5 +1,5 @@
-import { App, Gtk, Gdk } from "astal/gtk3";
-import { BoxProps } from "astal/gtk3/widget";
+import { App, Gtk, Gdk } from "astal/gtk4";
+import { BoxProps } from "astal/gtk4/widget";
 
 export enum BarItemStyle {
 	transparent = "transparent",
@@ -12,10 +12,11 @@ type Props = BoxProps & {
 	child?: JSX.Element; // when only one child is passed
 };
 
-export default ({ child, itemStyle, className, ...props }: Props) => {
+export default ({ child, itemStyle, cssName, ...props }: Props) => {
 	return (
 		<box
-			className={`bar__item ${itemStyle || ""} ${className}`}
+			cssClasses={["baritem"]}
+			// cssName={`bar__item ${itemStyle || ""} ${cssName}`}
 			valign={Gtk.Align.CENTER}
 			{...props}
 		>
