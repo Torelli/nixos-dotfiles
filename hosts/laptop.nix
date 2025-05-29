@@ -2,7 +2,7 @@
   imports = [
     ./shared.nix
     ./modules/hyprland.nix
-    ./hardware/vm.nix
+    ./hardware/laptop.nix
   ];
 
   environment = {
