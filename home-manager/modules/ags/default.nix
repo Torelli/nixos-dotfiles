@@ -1,9 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
+{ inputs
+, pkgs
+, ...
 }: {
-  imports = [inputs.ags.homeManagerModules.default];
+  imports = [ inputs.ags.homeManagerModules.default ];
 
   home.packages = with pkgs; [
     inputs.ags.packages.${pkgs.system}.notifd
@@ -16,6 +15,7 @@
 
   programs.ags = {
     enable = true;
+    configDir = ../ags;
     extraPackages = [
       pkgs.libsoup_3
       pkgs.gtksourceview
