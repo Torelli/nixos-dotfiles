@@ -54,6 +54,7 @@
       inputs.zen-browser.packages."${system}".default
 
       #hypr
+      inputs.hyprsettings.packages."${pkgs.system}".default
       socat # for monitor connect script
       hyprpicker
       hypridle

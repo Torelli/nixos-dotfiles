@@ -71,6 +71,10 @@
       url = "github:xiyaowong/transparent.nvim";
       flake = false;
     };
+    hyprsettings = {
+      url = "github:PoSayDone/hyprsettings";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 }
