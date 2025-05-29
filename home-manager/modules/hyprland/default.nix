@@ -37,4 +37,14 @@ in
       ${builtins.readFile ./layerrules.conf}
     '';
   };
+
+  home.file."~/.config/hypr/hyprlock.conf".text =
+    ''
+      ${builtins.readFile ./hyprlock.conf}
+    '';
+
+  home.file."~/.config/hypr/hypridle.conf".text =
+    ''
+      ${builtins.readFile ./hypridle.conf}
+    '';
 }

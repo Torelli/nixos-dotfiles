@@ -10,8 +10,8 @@
     ];
     pointerCursor = {
       gtk.enable = true;
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.graphite-cursors;
+      name = "Graphite";
       size = 24;
     };
   };
@@ -50,8 +50,8 @@
       name = "Colloid";
     };
     font = {
-      name = "Google Sans";
-      size = 12;
+      name = "Cantarell";
+      size = 11;
     };
   };
   qt = {

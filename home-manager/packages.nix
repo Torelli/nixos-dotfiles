@@ -29,6 +29,8 @@
       pamixer
       blueman
       wayshot
+      usbguard
+      usbguard-notifier
 
       #gui
       onlyoffice-desktopeditors

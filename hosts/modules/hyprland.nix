@@ -68,7 +68,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      adwaita-icon-theme
+      graphite-cursors
       nautilus
       gnome-calendar
       gnome-boxes
