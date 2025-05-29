@@ -32,7 +32,7 @@
       extraConfig = ''
         polkit.addRule(function(action, subject) {
             if (action.id == "org.freedesktop.policykit.exec" &&
-                action.lookup("command_line") == "/run/current-system/sw/bin/bash /home/posaydone/.config/nekoray/config/vpn-run-root.sh" &&
+                action.lookup("command_line") == "/run/current-system/sw/bin/bash /home/torelli/.config/nekoray/config/vpn-run-root.sh" &&
                 subject.isInGroup("wheel")) {
                 return polkit.Result.YES;
             }

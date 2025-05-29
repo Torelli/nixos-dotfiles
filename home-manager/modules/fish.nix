@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   programs = {
     direnv = {
       enable = true;
@@ -19,8 +19,7 @@
         C-l = "ctrl-l";
         control-l = "clear";
         clean = "clear";
-        rw = "sudo nixos-rebuild switch --flake $HOME/.nixdots#posaydone-work";
-        rl = "sudo nixos-rebuild switch --flake $HOME/.nixdots#posaydone-laptop";
+        rl = "sudo nixos-rebuild switch --flake $HOME/.nixdots#torelli-laptop";
       };
     };
 

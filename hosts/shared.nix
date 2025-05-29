@@ -32,7 +32,7 @@
       keep-derivations = true;
       keep-outputs = true;
 
-      trusted-users = [ "root" "@wheel" "posaydone" ];
+      trusted-users = [ "root" "@wheel" "torelli" ];
     };
   };
 
@@ -156,8 +156,8 @@
       };
     };
     displayManager = {
-      autoLogin.enable = true;
-      autoLogin.user = "posaydone";
+      # autoLogin.enable = true;
+      autoLogin.user = "torelli";
     };
     avahi = {
       enable = true;
@@ -192,7 +192,7 @@
 
   # network
   networking = {
-    hostName = "posaydone-laptop";
+    hostName = "torelli-laptop";
     networkmanager.enable = true;
   };
 

@@ -10,10 +10,10 @@
 		"checkJs": true,
 		"allowJs": true,
 		"jsx": "react-jsx",
-		"jsxImportSource": "/home/posaydone/.local/share/ags/gtk3",
+		"jsxImportSource": "/home/torelli/.local/share/ags/gtk3",
 		"paths": {
-			"astal": ["/home/posaydone/.local/share/ags"],
-			"astal/*": ["/home/posaydone/.local/share/ags/*"]
+			"astal": ["/home/torelli/.local/share/ags"],
+			"astal/*": ["/home/torelli/.local/share/ags/*"]
 		}
 	}
 }
