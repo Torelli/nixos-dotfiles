@@ -60,7 +60,7 @@
       gtklock
       enchant
       hunspell
-      hunspellDicts.ru_RU
+      hunspellDicts.pt_BR
       hunspellDicts.en_US
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
