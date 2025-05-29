@@ -18,7 +18,7 @@
             inherit inputs username system;
           };
           modules = [
-            ./hosts/vm.nix
+            ./hosts/laptop.nix
             {
               nix.settings.trusted-users = [ "torelli" ];
             }
