@@ -18,11 +18,11 @@
     configDir = ../ags;
     extraPackages = [
       pkgs.libsoup_3
-      pkgs.adw-gtk3
       pkgs.gtksourceview
       pkgs.libnotify
       pkgs.webkitgtk_4_1
       pkgs.gst_all_1.gstreamer
+      pkgs.libadwaita
       inputs.ags.packages.${pkgs.system}.apps
       inputs.ags.packages.${pkgs.system}.battery
       inputs.ags.packages.${pkgs.system}.hyprland
