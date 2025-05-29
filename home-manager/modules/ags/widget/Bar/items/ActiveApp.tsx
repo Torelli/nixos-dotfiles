@@ -9,28 +9,6 @@ export default () => {
 	const hypr = Hyprland.get_default();
 	const focused = bind(hypr, "focusedClient");
 
-	const activeWindowData = {
-		icon: icons.fallback.executable,
-		title: "",
-	};
-
-	const icon = focused.as((focused) => {
-		if (focused) {
-			const cls = focused.class;
-			activeWindowData.icon = substitutions.icons[cls]
-				? substitutions.icons[cls]
-				: lookUpIcon(cls)
-					? cls
-					: icons.fallback.executable;
-		}
-		return activeWindowData.icon;
-	});
-
-	const title = focused.as((focused) => {
-		if (focused) activeWindowData.title = focused.title.toString();
-		return activeWindowData.title;
-	});
-
 	return (
 		<revealer
 			transitionType={Gtk.RevealerTransitionType.CROSSFADE}
@@ -39,8 +17,29 @@ export default () => {
 		>
 			<BarButton className="bar__active-app">
 				<box spacing={8}>
-					<icon icon={icon} />
-					<label label={title} truncate={true} maxWidthChars={24} />
+					{focused.as(client => {
+						if (!client) return null;
+
+						// 提取 client 的绑定
+						const clientClassBinding = bind(client, "class");
+						const clientTitleBinding = bind(client, "title");
+
+						return (
+							<>
+								<icon
+									icon={clientClassBinding.as(cls =>
+										substitutions.icons[cls]
+										|| (lookUpIcon(cls) ? cls : icons.fallback.executable)
+									)}
+								/>
+								<label
+									label={clientTitleBinding.as(String)}
+									truncate={true}
+									maxWidthChars={24}
+								/>
+							</>
+						);
+					})}
 				</box>
 			</BarButton>
 		</revealer>

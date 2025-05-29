@@ -1,7 +1,6 @@
-import { GLib, GObject, property, readFile, register, writeFile } from "astal";
+import { GObject, property, register } from "astal";
 import { fetch, FetchOptions } from "../lib/fetch";
 import GoogleOAuth2Service from "./GoogleOAuth2";
-import { ensureDirectory } from "../lib/utils";
 
 async function fetchWithToken(url: string, options?: FetchOptions = {}) {
 	options["headers"] = {
@@ -41,7 +40,6 @@ export type Task = {
 @register()
 class GoogleTasksService extends GObject.Object {
 	#endpoint = "https://tasks.googleapis.com";
-	#savedDataPath = "";
 	#todos: Task[] = [];
 	#completedTodos: Task[] = [];
 	#selectedListId: string | null = null;
@@ -60,13 +58,7 @@ class GoogleTasksService extends GObject.Object {
 
 	set selectedListId(taskListId: string) {
 		this.#selectedListId = taskListId;
-		writeFile(
-			this.#savedDataPath,
-			JSON.stringify({
-				selectedListId: this.#selectedListId,
-			}),
-		);
-		this.updateTodos(true);
+		this.updateTodos();
 	}
 
 	@property()
@@ -139,45 +131,28 @@ class GoogleTasksService extends GObject.Object {
 		this.initializeData();
 	}
 
-	async updateTodos(notify: boolean = false) {
-		if (notify) {
-			this.#isLoading = true;
-			this.notify("is-loading");
-		}
+	async updateTodos() {
+		this.#isLoading = true;
+		this.notify("is-loading");
 		const tasks = await this.getTasks(this.#selectedListId!);
 		this.#todos = tasks.items;
 		this.notify("todos");
-		if (notify) {
-			this.#isLoading = false;
-			this.notify("is-loading");
-		}
+		this.#isLoading = false;
+		this.notify("is-loading");
 	}
 
 	private async initializeData() {
-		ensureDirectory(`${GLib.get_user_state_dir()}/ags/user/`);
-		this.#savedDataPath = `${GLib.get_user_state_dir()}/ags/user/todos.json`;
-
-		let selectedListId;
-
 		try {
-			const savedDataFile = readFile(this.#savedDataPath);
-			const savedData = JSON.parse(savedDataFile);
-			selectedListId = savedData["selectedListId"];
-
 			const taskLists = await this.getTasksLists();
 			this.#availableTaskLists = taskLists.items;
 			this.notify("available-task-lists");
-		} catch {
-			const taskLists = await this.getTasksLists();
-			this.#availableTaskLists = taskLists.items;
-			this.notify("available-task-lists");
-			selectedListId = this.#availableTaskLists?.[0].id;
-		}
 
-		try {
-			this.#selectedListId = selectedListId;
-			this.notify("selected-list-id");
-
+			if (this.#availableTaskLists.length > 0) {
+				this.#selectedListId = this.#availableTaskLists[0].id;
+				const tasks = await this.getTasks(this.#selectedListId);
+				this.#todos = tasks.items;
+				this.notify("todos");
+			}
 			this.#isLoading = false;
 			this.notify("is-loading");
 		} catch (error) {

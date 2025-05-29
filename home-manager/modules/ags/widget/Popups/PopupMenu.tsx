@@ -11,7 +11,7 @@ export default ({ label, child }: PopupMenuProps) => {
 
 	return (
 		<PopupWindow
-			layer={Astal.Layer.OVERLAY}
+			layer={Astal.Layer.TOP}
 			keymode={Astal.Keymode.EXCLUSIVE}
 			application={App}
 			scrimType="opaque"

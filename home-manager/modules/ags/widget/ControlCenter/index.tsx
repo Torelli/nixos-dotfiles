@@ -7,7 +7,6 @@ import Media from "./items/Media";
 import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
 import { toggleWindow } from "../../lib/utils";
-import FanProfiles from "./pages/FanProfiles";
 
 export const controlCenterPage = Variable("main");
 
@@ -32,7 +31,7 @@ export default () => {
 			name="control-center"
 			namespace="control-center"
 			className="ControlCenter"
-			layer={Astal.Layer.OVERLAY}
+			layer={Astal.Layer.TOP}
 			exclusivity={Astal.Exclusivity.NORMAL}
 			keymode={Astal.Keymode.EXCLUSIVE}
 			anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT}
@@ -72,7 +71,7 @@ export default () => {
 					>
 						<Main />
 						{Network()}
-						{FanProfiles()}
+						{/* {PowerProfiles()} */}
 						{Bluetooth()}
 					</stack>
 				</box>

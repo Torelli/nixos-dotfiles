@@ -1,4 +1,4 @@
-import { GLib, Variable } from "astal";
+import { GLib, Variable, execAsync } from "astal";
 import BarButton from "../BarButton";
 import { toggleWindow } from "../../../lib/utils";
 
@@ -12,6 +12,7 @@ export default () => {
 		<BarButton
 			onClicked={() => {
 				toggleWindow("dashboard");
+				// execAsync("gnome-calendar");
 			}}
 		>
 			<label

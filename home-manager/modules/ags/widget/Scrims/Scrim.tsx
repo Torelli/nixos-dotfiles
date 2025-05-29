@@ -11,7 +11,7 @@ const Scrim = ({ scrimType, className = "scrim" }: ScrimProps) => (
     visible={false}
     name={`${scrimType}-scrim`}
     namespace={`${scrimType}-scrim`}
-    layer={Astal.Layer.OVERLAY}
+    layer={Astal.Layer.TOP}
     exclusivity={Astal.Exclusivity.IGNORE}
     anchor={
       Astal.WindowAnchor.TOP |

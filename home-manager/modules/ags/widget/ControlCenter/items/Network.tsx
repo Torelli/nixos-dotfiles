@@ -1,8 +1,8 @@
 import { bind, Variable } from "astal";
+import { Subscribable } from "astal/binding";
 import icons from "../../../lib/icons";
 import ControlCenterButton from "../ControlCenterButton";
-import { controlCenterPage } from "../index";
-import Network from "gi://AstalNetwork?version=0.1";
+import Network from "gi://AstalNetwork";
 
 export default () => {
 	const network = Network.get_default();
@@ -45,7 +45,7 @@ export default () => {
 		},
 	);
 
-	const connection = [bind(wifi, "enabled"), () => wifi.enabled];
+	const connection: [Subscribable<unknown>, () => boolean] = [bind(wifi, "enabled"), () => wifi.enabled];
 
 	return (
 		<ControlCenterButton

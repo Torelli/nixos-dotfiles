@@ -52,6 +52,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 			vexpand={true}
 			className="Bar"
 			namespace="bar"
+			layer={Astal.Layer.BOTTOM}
 			gdkmonitor={gdkmonitor}
 			exclusivity={Astal.Exclusivity.EXCLUSIVE}
 			anchor={

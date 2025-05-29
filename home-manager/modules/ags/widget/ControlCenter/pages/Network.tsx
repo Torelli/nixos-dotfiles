@@ -1,7 +1,7 @@
 import AstalNetwork from "gi://AstalNetwork?version=0.1";
 import Page from "../Page";
-import { App, Gtk, Gdk, Widget } from "astal/gtk3";
-import { bind, execAsync, timeout, Variable } from "astal";
+import { Gdk, Gtk } from "astal/gtk3";
+import { bind } from "astal";
 import icons from "../../../lib/icons";
 
 export default () => {
@@ -13,11 +13,18 @@ export default () => {
 		return null;
 	}
 
+	// 提取绑定
+	const scanningBinding = bind(wifi, "scanning");
+	const iconNameBinding = bind(wifi, "iconName");
+	const enabledBinding = bind(wifi, "enabled");
+	const accessPointsBinding = bind(wifi, "accessPoints");
+	const activeAccessPointBinding = bind(wifi, "activeAccessPoint");
+
 	return (
 		<Page
 			label={"Network"}
 			refresh={() => wifi.scan()}
-			scanning={bind(wifi, "scanning")}
+			scanning={scanningBinding}
 		>
 			<box
 				vertical
@@ -26,7 +33,7 @@ export default () => {
 			>
 				<eventbox
 					onClickRelease={(_, event) => {
-						if (event.button !== 1) return;
+						if (event.button !== Gdk.BUTTON_PRIMARY) return;
 						if (network.wifi.enabled) {
 							network.wifi.enabled = false;
 						} else {
@@ -44,7 +51,7 @@ export default () => {
 							});
 						}}
 					>
-						<icon icon={bind(wifi, "iconName")} />
+						<icon icon={iconNameBinding} />
 						<label
 							label={"Wi-Fi"}
 							hexpand
@@ -54,7 +61,7 @@ export default () => {
 							hexpand={false}
 							halign={Gtk.Align.END}
 							valign={Gtk.Align.CENTER}
-							active={bind(wifi, "enabled")}
+							active={enabledBinding}
 							onActivate={({ active }) =>
 								(network.wifi.enabled = active)
 							}
@@ -62,22 +69,22 @@ export default () => {
 					</box>
 				</eventbox>
 				<box vertical spacing={4}>
-					{bind(wifi, "accessPoints").as((points) =>
+					{accessPointsBinding.as((points) =>
 						points.map((ap) => (
 							<button
+								// key={ap.ssid} // 添加 key 避免重复
 								className="control-center__page_item"
 								onClicked={() => {
-                                    nmClient.activate_connection_async()
-                                }}
+									nmClient.activate_connection_async();
+								}}
 							>
 								<box>
 									<icon icon={ap.iconName} iconSize={20} />
 									<label label={ap.ssid || ""} />
 									<icon
-										visible={bind(
-											wifi,
-											"activeAccessPoint",
-										).as((aap) => aap === ap)}
+										visible={activeAccessPointBinding.as(
+											(aap) => aap === ap,
+										)}
 										icon={icons.ui.tick}
 										hexpand
 										halign={Gtk.Align.END}

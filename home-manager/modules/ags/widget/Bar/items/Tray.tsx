@@ -1,27 +1,9 @@
 import Tray from "gi://AstalTray";
 import BarItem from "../BarItem";
-import { bind, timeout } from "astal";
-import { App, Gtk, Gdk } from "astal/gtk3";
+import { bind } from "astal";
+import { App, Gtk } from "astal/gtk3";
 
-type BarTrayItemProps = {
-	item: Tray.TrayItem;
-};
-
-const BarTrayItem = ({ item }: BarTrayItemProps) => {
-	return (
-		<menubutton
-			className="bar__tray-item"
-			usePopover={false}
-			tooltipMarkup={bind(item, "tooltipMarkup")}
-			actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
-			menuModel={bind(item, "menuModel")}
-		>
-			<icon gIcon={bind(item, "gicon")} />
-		</menubutton>
-	);
-};
-
-export default () => {
+export default function SysTray() {
 	const tray = Tray.get_default();
 
 	return (
@@ -46,18 +28,23 @@ export default () => {
 		>
 			<BarItem className="bar__tray">
 				<box spacing={4} hexpand={false} valign={Gtk.Align.CENTER}>
-					{bind(tray, "items").as((items) =>
-						items.map((item) => <BarTrayItem item={item} />),
-					)}
-					{/* {bind(tray, "items").as((items) =>
-						items.map((item) => {
-							if (item.iconThemePath)
-								App.add_icons(item.iconThemePath);
-							return <BarTrayItem item={item} />;
-						}),
-					)} */}
+					{bind(tray, "items").as(items => items.map(item => {
+						if (item.iconThemePath) {
+							App.add_icons(item.iconThemePath);
+						}
+						return (
+							<menubutton
+								className="bar__tray-item"
+								tooltipMarkup={bind(item, "tooltipMarkup")}
+								usePopover={false}
+								actionGroup={bind(item, "action-group").as(ag => ["dbusmenu", ag])}
+								menuModel={bind(item, "menu-model")}>
+								<icon gIcon={bind(item, "gicon")} />
+							</menubutton>
+						);
+					}))}
 				</box>
 			</BarItem>
 		</revealer>
 	);
-};
+}

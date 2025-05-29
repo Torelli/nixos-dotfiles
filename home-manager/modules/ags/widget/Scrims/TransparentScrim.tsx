@@ -6,7 +6,7 @@ export default () => (
 		visible={false}
 		name="transparent-scrim"
 		namespace="transparent-scrim"
-		layer={Astal.Layer.OVERLAY}
+		layer={Astal.Layer.TOP}
 		exclusivity={Astal.Exclusivity.IGNORE}
 		anchor={
 			Astal.WindowAnchor.TOP |

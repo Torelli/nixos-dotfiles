@@ -12,6 +12,9 @@ export default () => {
 	const focusWorkspace = (workspaceId: number) =>
 		hypr.dispatch("workspace", workspaceId.toString());
 
+	// 提取 focusedWorkspace 的绑定
+	const focusedWorkspaceBinding = bind(hypr, "focusedWorkspace");
+
 	return (
 		<BarItem>
 			<box spacing={8}>
@@ -19,12 +22,11 @@ export default () => {
 					return (
 						<button
 							valign={Gtk.Align.CENTER}
-							className={bind(hypr, "focusedWorkspace").as(
+							className={focusedWorkspaceBinding.as(
 								(fw) => {
-									if (fw)
-										return i === fw.id
-											? "bar__workspaces-indicator active"
-											: "bar__workspaces-indicator";
+									return i === fw.id
+										? "bar__workspaces-indicator active"
+										: "bar__workspaces-indicator";
 								},
 							)}
 							onClicked={() => focusWorkspace(i)}

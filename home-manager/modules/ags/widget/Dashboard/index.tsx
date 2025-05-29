@@ -1,8 +1,8 @@
 import { App, Astal } from "astal/gtk3";
 import PopupWindow from "../../common/PopupWindow";
-import Todos from "./items/Todos";
-import Calendar from "./items/Calendar";
-
+import { CalendarWidget } from "./items/CalendarWidget";
+import { TimeWidget } from "./items/Time"
+import { WeatherWidget } from "./items/Weather/"
 export default () => {
 	return (
 		<PopupWindow
@@ -11,7 +11,7 @@ export default () => {
 			scrimType="transparent"
 			anchor={Astal.WindowAnchor.TOP}
 			marginTop={12}
-			layer={Astal.Layer.OVERLAY}
+			layer={Astal.Layer.TOP}
 			exclusivity={Astal.Exclusivity.NORMAL}
 			keymode={Astal.Keymode.EXCLUSIVE}
 			onKeyPressEvent={(self, event) => {
@@ -22,8 +22,11 @@ export default () => {
 			}}
 		>
 			<box className={"dashboard"} vertical spacing={10}>
-				{Calendar()}
-				{Todos()}
+				{/* {systemStats()} */}
+				{/* <Calendar /> */}
+				{/* <TimeWidget /> */}
+				<CalendarWidget />
+				<WeatherWidget />
 			</box>
 		</PopupWindow>
 	);

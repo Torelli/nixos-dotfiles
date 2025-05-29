@@ -68,7 +68,7 @@ export default (gdkmonitor: Gdk.Monitor) => (
 		className="OSD"
 		namespace="osd"
 		gdkmonitor={gdkmonitor}
-		layer={Astal.Layer.OVERLAY}
+		layer={Astal.Layer.TOP}
 		anchor={Astal.WindowAnchor.BOTTOM}
 		setup={(self) => {
 			self.add(

@@ -1,5 +1,6 @@
+@use "sass:color";
 
-$background: #1a1110;
+$background: #1a120e;
 
 $blue: #b8c4ff;
 
@@ -21,13 +22,13 @@ $green_source: #a6e3a1;
 
 $green_value: #a6e3a1;
 
-$inverse_on_surface: #392e2c;
+$inverse_on_surface: #382e2a;
 
-$inverse_primary: #904a42;
+$inverse_primary: #8e4d2e;
 
-$inverse_surface: #f1dedc;
+$inverse_surface: #f1dfd8;
 
-$on_background: #f1dedc;
+$on_background: #f1dfd8;
 
 $on_blue: #1f2c61;
 
@@ -41,69 +42,69 @@ $on_green: #1f3701;
 
 $on_green_container: #cdeda3;
 
-$on_orange: #55200a;
+$on_orange: #532202;
 
-$on_orange_container: #ffdbcf;
+$on_orange_container: #ffdbca;
 
-$on_primary: #561e18;
+$on_primary: #542105;
 
-$on_primary_container: #ffdad5;
+$on_primary_container: #ffdbcc;
 
-$on_primary_fixed: #3b0906;
+$on_primary_fixed: #351000;
 
-$on_primary_fixed_variant: #73342c;
+$on_primary_fixed_variant: #713619;
 
 $on_purple: #462152;
 
 $on_purple_container: #fad7ff;
 
-$on_red: #561d23;
+$on_red: #561d20;
 
-$on_red_container: #ffdadb;
+$on_red_container: #ffdad9;
 
-$on_secondary: #442926;
+$on_secondary: #442a1f;
 
-$on_secondary_container: #ffdad5;
+$on_secondary_container: #ffdbcc;
 
-$on_secondary_fixed: #2c1512;
+$on_secondary_fixed: #2c160c;
 
-$on_secondary_fixed_variant: #5d3f3b;
+$on_secondary_fixed_variant: #5d4034;
 
-$on_surface: #f1dedc;
+$on_surface: #f1dfd8;
 
-$on_surface_variant: #d8c2be;
+$on_surface_variant: #d8c2ba;
 
-$on_tertiary: #3e2e04;
+$on_tertiary: #363106;
 
-$on_tertiary_container: #fcdfa6;
+$on_tertiary_container: #eee4a9;
 
-$on_tertiary_fixed: #261a00;
+$on_tertiary_fixed: #201c00;
 
-$on_tertiary_fixed_variant: #574419;
+$on_tertiary_fixed_variant: #4e471b;
 
 $on_yellow: #452b00;
 
 $on_yellow_container: #ffddb3;
 
-$orange: #ffb59b;
+$orange: #ffb690;
 
-$orange_container: #72361e;
+$orange_container: #703715;
 
 $orange_source: #fab387;
 
 $orange_value: #fab387;
 
-$outline: #a08c89;
+$outline: #a08d85;
 
-$outline_variant: #534341;
+$outline_variant: #52443d;
 
-$primary: #ffb4aa;
+$primary: #ffb595;
 
-$primary_container: #73342c;
+$primary_container: #713619;
 
-$primary_fixed: #ffdad5;
+$primary_fixed: #ffdbcc;
 
-$primary_fixed_dim: #ffb4aa;
+$primary_fixed_dim: #ffb595;
 
 $purple: #e6b6f1;
 
@@ -113,9 +114,9 @@ $purple_source: #cba6f7;
 
 $purple_value: #cba6f7;
 
-$red: #ffb2b6;
+$red: #ffb3b3;
 
-$red_container: #723339;
+$red_container: #733335;
 
 $red_source: #f38ba8;
 
@@ -123,45 +124,45 @@ $red_value: #f38ba8;
 
 $scrim: #000000;
 
-$secondary: #e7bdb7;
+$secondary: #e6bead;
 
-$secondary_container: #5d3f3b;
+$secondary_container: #5d4034;
 
-$secondary_fixed: #ffdad5;
+$secondary_fixed: #ffdbcc;
 
-$secondary_fixed_dim: #e7bdb7;
+$secondary_fixed_dim: #e6bead;
 
 $shadow: #000000;
 
-$source_color: #f95445;
+$source_color: #e25c05;
 
-$surface: #1a1110;
+$surface: #1a120e;
 
-$surface_bright: #423735;
+$surface_bright: #423733;
 
-$surface_container: #271d1c;
+$surface_container: #271e1a;
 
-$surface_container_high: #322826;
+$surface_container_high: #322824;
 
-$surface_container_highest: #3d3231;
+$surface_container_highest: #3d332e;
 
-$surface_container_low: #231918;
+$surface_container_low: #231a16;
 
-$surface_container_lowest: #140c0b;
+$surface_container_lowest: #140c09;
 
-$surface_dim: #1a1110;
+$surface_dim: #1a120e;
 
-$surface_tint: #ffb4aa;
+$surface_tint: #ffb595;
 
-$surface_variant: #534341;
+$surface_variant: #52443d;
 
-$tertiary: #dfc38c;
+$tertiary: #d2c78f;
 
-$tertiary_container: #574419;
+$tertiary_container: #4e471b;
 
-$tertiary_fixed: #fcdfa6;
+$tertiary_fixed: #eee4a9;
 
-$tertiary_fixed_dim: #dfc38c;
+$tertiary_fixed_dim: #d2c78f;
 
 $yellow: #f5bd6f;
 
@@ -174,8 +175,11 @@ $yellow_value: #f9e2af;
 
 
 $theme: 'dark';
-$surface_transparent: transparentize($surface, 0.2);
-$inverse_surface_transparent: transparentize($inverse_surface, 0.92);
-$inverse_surface_transparent_variant: transparentize($inverse_surface, 0.82);
+$surface_transparent: color.scale($surface, $alpha: -20%);
+$inverse_surface_transparent: color.scale($inverse_surface, $alpha: -92%);
+$inverse_surface_transparent_variant: color.scale(
+  $inverse_surface,
+  $alpha: -82%
+);
 $inverse_surface_transparent_overlay: linear-gradient(0deg, $inverse_surface_transparent, $inverse_surface_transparent);
 $inverse_surface_transparent_variant_overlay: linear-gradient(0deg, $inverse_surface_transparent_variant, $inverse_surface_transparent_variant);

@@ -1,132 +1,249 @@
-@use "colors";
+@use "sass:string";
+@use "sass:color";
+@use "colors.scss" as *;
 
 .dashboard {
-	border-radius: 38px;
-	min-width: 420px;
-	transition:
-		background-color 1s ease-in-out,
-		color 1s ease-in-out;
+  border-radius: 20px;
+  min-width: 420px;
+  transition:
+    background-color 1s ease-in-out,
+    color 1s ease-in-out;
 }
 
-.block {
-	background: colors.$surface_transparent;
-	border-radius: 30px;
-	padding: 20px;
-	transition:
-		background-color 1s ease,
-		color 1s ease;
+// 日历菜单内容，对应calendar-menu-content
+.calendar-menu-content * {
+  font-size: 1rem; // 使用你原始的字体大小比例
 }
 
-.placeholder {
-	color: colors.$outline;
-	label {
-		font-size: 18px;
-	}
+// 日历内容容器，对应calendar-content-container
+.calendar-content-container {
+  margin-top: 0;
+  min-width: 27em;
+  min-height: 6em;
+  background: $surface_transparent;
+  border-radius: 20px;
+  transition:
+    background-color 1s ease,
+    color 1s ease;
 }
 
-.calendar__header {
-	margin-top: 12px;
-	padding: 10px;
+// 日历菜单项容器，对应calendar-menu-item-container
+.calendar-menu-item-container {
+  border-radius: 20px;
+  margin-bottom: 0.65em;
+  background: $surface_transparent;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.calendar {
+    background: $surface_transparent;
+    border-radius: 20px;
+  }
 }
 
-.calendar__monthyear {
-	* {
-		font-size: 18px;
-		font-weight: 500;
-	}
+// 日历内容项，对应calendar-content-items
+.calendar-content-items {
+  margin: 1.35em;
 }
 
-.calendar__button {
-	padding: 10px 12px;
+// 日历容器盒子，对应calendar-container-box
+.calendar-container-box {
+  margin: 0.75em;
+  margin-bottom: 0;
 }
 
-.calendar__button__today {
-	border-radius: 100px;
-	background: colors.$primary;
-	color: colors.$on_primary;
+// 日历菜单组件，对应calendar-menu-widget
+.calendar-menu-widget {
+  // border-radius: 0.4em;
+  color: $on_surface;
+  font-size: 1.1em;
+  padding: 0.5em;
+
+  &:selected {
+    box-shadow:
+      inset 0 -0.2em 0 0 $primary,
+      inset -0.4em -0.3em 0 0 transparent,
+      inset 0.4em 0 0 0.01em transparent;
+    color: $primary;
+    background-color: transparent;
+    // border-radius: 200%;
+    border-radius: 0rem;
+  }
+
+  &.header {
+    background-color: transparent;
+    color: $on_surface;
+  }
+
+  &.botton {
+    color: $primary;
+  }
+
+  &:hover {
+    color: $primary;
+  }
+
+  &.highlight {
+    color: $primary;
+  }
+
+  &:indeterminate {
+    // color: transparentize($on_surface, 0.65);
+    color: color.scale($on_surface, $alpha: -35%);
+  }
 }
 
-.calendar__button__other-month {
-	color: colors.$outline;
+// GTK日历特定样式
+calendar {
+  // color: $on_surface;
+  // font-size: 1.1em;
+  // padding: 0.5em;
+  // 日历网格样式
+  &.view {
+    background-color: transparent;
+    border-radius: 12px;
+    padding: 0.5rem;
+  }
+
+  // 当前日期样式
+  &:selected {
+    // box-shadow:
+    //   inset 0 -0.2em 0 0 $primary,
+    //   inset -0.4em -0.3em 0 0 transparent,
+    //   inset 0.4em 0 0 0.01em transparent;
+    background-color: transparent;
+    color: $primary;
+    // padding: 0.5rem; // 调整 padding 以使按钮居中
+    // border-radius: 100%;
+  }
+
+  // 日期悬停样式
+  &:hover {
+    color: $primary;
+    // border-radius: 7.143rem;
+  }
+
+  // &:botton {
+  //   color: $primary;
+  // }
+
+  // 周和星期样式
+  &.highlight {
+    color: $primary;
+    // font-weight: bold;
+  }
+
+  // 非当前月份的日期样式
+  &:indeterminate {
+    color: color.scale($on_surface, $alpha: -35%);
+  }
+}
+.clock-content-items {
+  min-height: 8em;
+
+  .clock-content-time {
+    font-size: 4em;
+    color: $primary;
+  }
+
+  .clock-content-period {
+    font-size: 1.75em;
+    margin-bottom: 1.35em;
+    margin-right: -0.875em;
+    color: $tertiary;
+  }
+}
+.weather-container-box {
+  margin: 1.5em;
+  margin-top: 2.5em;
+  min-width: 3em;
+
+  .calendar-menu-weather.today.icon {
+    label {
+      color: $primary;
+      font-size: 5em;
+    }
+  }
+
+  .calendar-menu-weather.today.temp.label {
+    color: $on_surface;
+    margin-left: 0.2em;
+    font-size: 2.5em;
+
+    font-weight: bold;
+    &.icon {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+  }
+
+  .calendar-menu-weather.today.condition.label {
+    color: $secondary;
+    font-size: 1em;
+    margin-bottom: 0.4em;
+    margin-left: 0.5em;
+  }
+
+  .calendar-menu-weather.today.temp.label.icon.weather-color.red {
+    color: $red;
+  }
+
+  .calendar-menu-weather.today.temp.label.icon.weather-color.orange {
+    color: $orange;
+  }
+
+  .calendar-menu-weather.today.temp.label.icon.weather-color.lavender {
+    color: $purple;
+  }
+
+  .calendar-menu-weather.today.temp.label.icon.weather-color.blue {
+    color: $blue;
+  }
+
+  .calendar-menu-weather.today.temp.label.icon.weather-color.sky {
+    color: $blue;
+  }
 }
 
-.calendar__weekday {
-	min-height: 40px;
-	min-width: 36px;
-	font-weight: 600;
+.calendar-menu-weather.today.stats.container {
+  margin-bottom: 0.75em;
+  color: $primary;
+  margin-top: 2.5em;
+
+  .weather.label {
+    margin-left: 0.35em;
+  }
 }
 
-.calendar__day {
-	border-radius: 100px;
-	min-height: 40px;
-	min-width: 40px;
-	&.active {
-		background: colors.$primary;
-		color: colors.$on_primary;
-	}
-	&.inactive {
-		color: colors.$inverse_surface_transparent_variant;
-	}
+.menu-separator.weather {
+  margin: 1.5em 0em;
+  background-color: $on_surface_variant;
+  color: $on_surface_variant;
 }
 
-.todos {
-	min-height: 0px;
-	padding: 12px 12px 0;
-
-	revealer:last-child {
-		.todo {
-			margin-bottom: 12px;
-		}
-	}
+.hourly-weather-time {
+  color: $primary;
+  margin-bottom: 0.5em;
 }
 
-.todos__combobox {
-	* {
-		font-size: 18px;
-	}
-	button {
-		margin: 0 10px;
-		padding: 12px 0 18px 0;
-	}
+.hourly-weather-icon {
+  color: $primary;
+  margin-bottom: 0.25em;
+  font-size: 1.8em;
 }
 
-.todos__heading {
-	margin-bottom: 8px;
+.hourly-weather-temp {
+  color: $primary;
 }
 
-.todos__scrollable {
-	min-height: 280px;
+.weather.precip.icon {
+  min-width: 1em;
+  font-size: 1em;
 }
 
-.todo {
-	min-height: 48px;
-	padding: 0 10px;
-	font-weight: 400;
-	label {
-		font-size: 16px;
-	}
-}
-
-.todo__check,
-.todo__delete {
-	font-size: 20px;
-	color: colors.$on_surface_variant;
-}
-
-.todos__input_box {
-	padding: 0 10px;
-	icon {
-		font-size: 20px;
-		color: colors.$primary;
-	}
-	min-height: 42px;
-}
-
-.todos__input {
-	padding: 0;
-	font-size: 16px;
-	background: none;
-	font-weight: 500;
-	color: colors.$primary;
-	caret-color: colors.$primary;
+.weather.wind.icon {
+  min-width: 1em;
+  font-size: 1em;
 }

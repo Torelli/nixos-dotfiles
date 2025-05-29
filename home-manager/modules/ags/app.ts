@@ -8,7 +8,6 @@ import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
 import {
 	monitorColorsChange,
-	monitorDashboard,
 	toggleWindow,
 } from "./lib/utils";
 import Scrim from "./widget/Scrims/Scrim";
@@ -17,9 +16,11 @@ import MixerMenu from "./widget/Popups/menus/Mixer";
 import Verification from "./widget/Powermenu/Verification";
 import Powermenu from "./widget/Powermenu";
 import ScreenRecordService from "./service/ScreenRecord";
-import GoogleOAuth2Service from "./service/GoogleOAuth2";
 import Dashboard from "./widget/Dashboard";
-
+import {
+	CornerTopleft,
+	CornerTopright,
+} from "./widget/ScreenCorners"
 function main() {
 	const bars = new Map<Gdk.Monitor, Gtk.Widget>();
 	const notificationsPopups = new Map<Gdk.Monitor, Gtk.Widget>();
@@ -34,8 +35,12 @@ function main() {
 	MixerMenu();
 	Verification();
 	Powermenu();
+	CornerTopleft(0);
+	CornerTopright(0);
+	// CornerBottomleft(0);
+	// CornerBottomright(0);
 	Dashboard();
-
+	monitorColorsChange();
 	for (const gdkmonitor of App.get_monitors()) {
 		bars.set(gdkmonitor, Bar(gdkmonitor));
 		notificationsPopups.set(gdkmonitor, NotificationsPopup(gdkmonitor));
@@ -43,31 +48,27 @@ function main() {
 	}
 
 	App.connect("monitor-added", (_, gdkmonitor) => {
-		console.log("monitor added");
 		bars.set(gdkmonitor, Bar(gdkmonitor));
 		notificationsPopups.set(gdkmonitor, NotificationsPopup(gdkmonitor));
 		osds.set(gdkmonitor, OSD(gdkmonitor));
 	});
 
 	App.connect("monitor-removed", (_, gdkmonitor) => {
-		console.log("monitor removed");
-
 		bars.get(gdkmonitor)?.destroy();
-		bars.delete(gdkmonitor);
-
 		notificationsPopups.get(gdkmonitor)?.destroy();
-		notificationsPopups.delete(gdkmonitor);
-
 		osds.get(gdkmonitor)?.destroy();
+		bars.delete(gdkmonitor);
+		notificationsPopups.delete(gdkmonitor);
 		osds.delete(gdkmonitor);
 	});
 
-	if (!GoogleOAuth2Service.isAuthenticated()) {
-		GoogleOAuth2Service.openAuthorizationWebView();
-	}
+	// if (!GoogleOAuth2Service.isAuthenticated()) {
+	// 	GoogleOAuth2Service.openAuthorizationWebView();
+	// }
 
-	monitorColorsChange();
-	monitorDashboard();
+	// if (!GoogleOAuth2Service.isAuthenticated()) {
+	// 	GoogleOAuth2Service.openAuthorizationWebView();
+	// }
 }
 
 App.start({

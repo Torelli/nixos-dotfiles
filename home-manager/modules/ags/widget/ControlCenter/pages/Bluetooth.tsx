@@ -1,10 +1,13 @@
 import AstalBluetooth from "gi://AstalBluetooth?version=0.1";
 import Page from "../Page";
-import { App, Gtk, Gdk, Widget } from "astal/gtk3";
-import { bind, execAsync, timeout, Variable } from "astal";
+import { Gdk, Gtk } from "astal/gtk3";
+import { bind, timeout } from "astal";
 import icons from "../../../lib/icons";
+import { upower } from "../../../lib/variables";
+import { Spinner } from "../../../common/Types";
 
 const bluetooth = AstalBluetooth.get_default();
+const power = bind(upower);
 
 type DeviceItemProps = {
 	device: AstalBluetooth.Device;
@@ -19,27 +22,35 @@ const DeviceItem = ({ device }: DeviceItemProps) => {
 					bluetooth.toggle();
 				}
 				timeout(100, () => {
-					device.connect_device(() => {});
+					device.connect_device(() => { });
 				});
 			}}
+			visible={device.name !== null}
 		>
 			<box>
-				<icon icon={device.icon + "-symbolic"} />
+				<icon icon={device.icon === null ? icons.bluetooth.enabled : device.icon + "-symbolic"} />
 				<label label={device.name} />
-				{
-					//Todo: Add bluetooth battery percentage
-					// <label
-					// 	className="bluetooth__percentage"
-					// 	label={`${device.battery_percentage}%`}
-					// 	visible={bind(device, "battery_percentage").as(
-					// 		(p) => p > 0,
-					// 	)}
-					// />
-				}
+
+				<label
+					className="bluetooth__percentage"
+					label={power.as((arr) => {
+						const upowerData = arr.find(item => item.model === device.name) || false
+						if (upowerData && upowerData?.batteryPercentage) {
+							return upowerData.batteryPercentage + "%";
+						}
+						return "";
+					})}
+					visible={power.as((arr) => {
+						const upowerData = arr.find(item => item.model === device.name) || false
+						if (upowerData && upowerData?.batteryPercentage) {
+							return true;
+						}
+						return false;
+					})}
+				/>
 				<box hexpand />
 				{
-					// TODO: Add spinner
-					// <spinner visible={bind(device, "connecting")} />
+					<Spinner visible={bind(device, "connecting")} />
 				}
 				<icon
 					icon={icons.ui.tick}
@@ -62,7 +73,7 @@ export default () => {
 			>
 				<eventbox
 					onClickRelease={(_, event) => {
-						if (event.button !== 1) return;
+						if (event.button !== Gdk.BUTTON_PRIMARY) return;
 						bluetooth.toggle();
 					}}
 				>

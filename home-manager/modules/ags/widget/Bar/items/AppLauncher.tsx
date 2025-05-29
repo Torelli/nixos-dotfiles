@@ -18,11 +18,17 @@ export default () => (
 		}}
 	>
 		<box
-			className="bar__app-launcher_icon"
+			// className="bar__app-launcher_icon"
 			valign={Gtk.Align.CENTER}
 			halign={Gtk.Align.CENTER}
 			hexpand={true}
 			vexpand={true}
-		/>
+		>
+			<label
+				label="󰣇"
+				className="arch-icon"
+				useMarkup={true}
+			/>
+		</box>
 	</BarButton>
 );
