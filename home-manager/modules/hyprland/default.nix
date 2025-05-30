@@ -43,5 +43,5 @@ in
 
   home.file."/home/${username}/.config/hypr/hypridle.conf".source = ./hypridle.conf;
 
-  home.file."/home/${username}/.config/hypr/hyprshade.conf".source = ./hyprshade.toml;
+  home.file."/home/${username}/.config/hypr/hyprshade.toml".source = ./hyprshade.toml;
 }
