@@ -77,6 +77,7 @@
       corefonts
       grim
       slurp
+      waypaper
 
       #development
       dbeaver-bin
