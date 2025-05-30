@@ -24,6 +24,7 @@
       zoxide
       bat
       fastfetch
+      lsd
 
       #tools
       ripdrag
