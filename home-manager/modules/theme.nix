@@ -21,6 +21,7 @@
     color-scheme = "prefer-dark";
   };
   gtk = {
+    cursorTheme = pkgs.graphite-cursors;
     enable = true;
     gtk4.extraCss = config.gtk.gtk3.extraCss;
     gtk3.extraCss = ''
