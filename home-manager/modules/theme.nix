@@ -7,6 +7,7 @@
     packages = with pkgs; [
       adw-gtk3
       colloid-icon-theme
+      graphite-cursors
     ];
     pointerCursor = {
       gtk.enable = true;
