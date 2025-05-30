@@ -30,7 +30,7 @@
         set fish_cursor_visual block
 
         set fish_greeting
-        clear
+        command clear
       '';
       shellAliases = {
         vim = "nvim";
