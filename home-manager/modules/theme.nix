@@ -53,7 +53,7 @@
     };
     font = {
       package = pkgs.cantarell-fonts;
-      name = "Cantarell Light";
+      name = "Cantarell";
       size = 11;
     };
   };
