@@ -50,6 +50,7 @@
   environment = {
     systemPackages = with pkgs; [
       pkgs.distrobox
+      shared-mime-info
       polkit_gnome
       home-manager
       system-config-printer

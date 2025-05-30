@@ -13,8 +13,8 @@ export default class ScreenRecord extends GObject.Object {
     return this.instance;
   }
 
-  #recordings = `${HOME}/Videos/Screencasting`;
-  #screenshots = `${HOME}/Pictures/Screenshots`;
+  #recordings = `${HOME}/Videos/screencasting`;
+  #screenshots = `${HOME}/Pictures/screenshots`;
   #soundrecord = `alsa_input.pci-0000_06_00.6.analog-stereo`;
   #file = "";
   #interval?: Time;
