@@ -2,6 +2,7 @@
   programs = {
     direnv = {
       enable = true;
+      enableBashIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
 
@@ -29,7 +30,7 @@
         set fish_cursor_visual block
 
         set fish_greeting
-        command clear
+        command fastfetch
       '';
       shellAliases = {
         vim = "nvim";
