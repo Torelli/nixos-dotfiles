@@ -38,7 +38,7 @@ in
     '';
   };
 
-  home.configFile."~/.config/hypr/hyprlock.conf".source = ./hyprlock.conf;
+  home.file."~/.config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 
-  home.configFile."~/.config/hypr/hypridle.conf".source = ./hypridle.conf;
+  home.file."~/.config/hypr/hypridle.conf".source = ./hypridle.conf;
 }
