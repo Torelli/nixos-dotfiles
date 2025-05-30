@@ -68,7 +68,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      graphite-cursors
+      bibata-cursors
       nautilus
       gnome-calendar
       gnome-boxes

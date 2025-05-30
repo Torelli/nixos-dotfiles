@@ -7,12 +7,12 @@
     packages = with pkgs; [
       adw-gtk3
       colloid-icon-theme
-      graphite-cursors
+      bibata-cursors
     ];
     pointerCursor = {
       gtk.enable = true;
-      package = pkgs.graphite-cursors;
-      name = "Graphite";
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
       size = 24;
     };
   };
@@ -49,10 +49,6 @@
     iconTheme = {
       package = pkgs.colloid-icon-theme;
       name = "Colloid";
-    };
-    cursorTheme = {
-      package = pkgs.graphite-cursors;
-      name = "Graphite";
     };
     font = {
       name = "Cantarell";
