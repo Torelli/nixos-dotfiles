@@ -202,6 +202,7 @@ function wallpaperPicker() {
                             // GLib.remove(wallpaper.current.get());
                             wallpaper.current.set(current);
                           });
+                          sh(`swww img ${path}/${w}`);
                         }}
                       >
                         <Gtk.Picture
