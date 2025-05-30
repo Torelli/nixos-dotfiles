@@ -9,7 +9,6 @@ in
   imports = [
     ./packages.nix
     ./modules/ags
-    ./modules/fish.nix
     ./modules/tmux.nix
     ./modules/git.nix
     ./modules/theme.nix
