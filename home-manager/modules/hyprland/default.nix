@@ -1,5 +1,6 @@
 { inputs
 , pkgs
+, username
 , ...
 }:
 let
@@ -38,7 +39,7 @@ in
     '';
   };
 
-  home.file."~/.config/hypr/hyprlock.conf".source = ./hyprlock.conf;
+  home.file."/home/${username}/.config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 
-  home.file."~/.config/hypr/hypridle.conf".source = ./hypridle.conf;
+  home.file."/home/${username}/.config/hypr/hypridle.conf".source = ./hypridle.conf;
 }
