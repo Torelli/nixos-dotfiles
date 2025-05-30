@@ -5,10 +5,6 @@
 let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
-  hyprlock = inputs.hyprlock.packages.${pkgs.system}.default;
-
-  hypridle = inputs.hypridle.packages.${pkgs.system}.default;
-
   swww = pkgs.writeShellScript "swww" ''
     ${builtins.readFile ./bin/swww.sh}
   '';
@@ -29,10 +25,6 @@ in
         "${monitor_connect}"
       ];
     };
-    plugins = [
-      hyprlock
-      hypridle
-    ];
     extraConfig = ''
       ${builtins.readFile ./hyprland.conf}
       ${builtins.readFile ./colors.conf}
@@ -46,7 +38,7 @@ in
     '';
   };
 
-  home.file."~/.config/hypr/hyprlock.conf".source = ./hyprlock.conf;
+  home.configFile."~/.config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 
-  home.file."~/.config/hypr/hypridle.conf".source = ./hypridle.conf;
+  home.configFile."~/.config/hypr/hypridle.conf".source = ./hypridle.conf;
 }
