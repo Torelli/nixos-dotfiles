@@ -79,15 +79,15 @@ output_path = '~/.config/starship.toml'
 input_path = "~/.config/matugen/templates/midnight-discord.css"
 output_path = "~/.config/vesktop/themes/HyprNoon.css"
 
-[templates.rmpc]
-input_path = '~/.config/matugen/templates/rmpc.ron'
-output_path = '~/.config/rmpc/themes/custom.ron'
+# [templates.rmpc]
+# input_path = '~/.config/matugen/templates/rmpc.ron'
+# output_path = '~/.config/rmpc/themes/custom.ron'
 
 
-[templates.cava]
-input_path = '~/.config/matugen/templates/config'
-output_path = '~/.config/cava/config'
-post_hook = 'pkill -USR2 cava'
+# [templates.cava]
+# input_path = '~/.config/matugen/templates/config'
+# output_path = '~/.config/cava/config'
+# post_hook = 'pkill -USR2 cava'
 
 # [templates.waybar]
 # input_path = '~/.config/matugen/templates/colors.css'
@@ -128,20 +128,15 @@ output_path = '~/.config/clipse/custom_theme.json'
 input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
 
-[templates.musicfox]
-input_path = '~/.config/matugen/templates/musicfox'
-output_path = '~/.config/matugen/scripts/musicfox'
-post_hook = 'sh ~/.config/matugen/scripts/musicfox'
-
 # Spicetify
 [templates.spicetify]
 input_path = '~/.config/matugen/templates/spotify.ini'
 output_path = '~/.config/spicetify/Themes/Comfy/color.ini'
 
-[templates.tmux]
-input_path = '~/.config/matugen/templates/tmux.conf'
-output_path = '~/.tmux.conf'
-post_hook = 'tmux source-file ~/.tmux.conf'
+# [templates.tmux]
+# input_path = '~/.config/matugen/templates/tmux.conf'
+# output_path = '~/.tmux.conf'
+# post_hook = 'tmux source-file ~/.tmux.conf'
 
 
 [templates.fish]
@@ -171,10 +166,6 @@ output_path = '~/.config/waypaper/scripts/icon.svg'
 [templates.lazygit]
 input_path = "~/.config/matugen/templates/lazygit.yml"
 output_path = "~/.config/lazygit/config.yml"
-
-[templates.Telegram]
-input_path = "~/.config/matugen/templates/telegram-colors.tdesktop-theme"
-output_path = "~/.config/telegram-desktop/themes/material-you.tdesktop-theme"
 
 [config.custom_colors]
 red = "#f38ba8"
