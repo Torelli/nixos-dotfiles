@@ -54,6 +54,7 @@ Debian = "󰣚 "
 Redhat = "󱄛 "
 RedHatEnterprise = "󱄛 "
 Pop = " "
+NixOS = " "
 [username]
 style_user = 'bg:color1 fg:color2'
 style_root = 'bg:color1 fg:color2'
