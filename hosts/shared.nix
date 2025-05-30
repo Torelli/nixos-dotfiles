@@ -65,7 +65,7 @@
       hunspellDicts.en_US
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
-    binsh = "${pkgs.fish}/bin/fish";
+    # binsh = "${pkgs.fish}/bin/fish";
   };
   security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
   security.pam.services.astal-auth = { };

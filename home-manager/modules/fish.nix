@@ -30,7 +30,6 @@
         set fish_cursor_visual block
 
         set fish_greeting
-        command fastfetch
       '';
       shellAliases = {
         vim = "nvim";
