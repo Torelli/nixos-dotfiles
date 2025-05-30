@@ -21,6 +21,7 @@
       tesseract
       starship
       glib
+      zoxide
 
       #tools
       ripdrag
