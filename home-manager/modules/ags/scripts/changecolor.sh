@@ -7,6 +7,7 @@ mode="$2"
 if [ "$mode" = "light" ]; then
   # 应用亮色主题
   matugen image "$wallpaper" -m light
+  swww img "$wallpaper" --transition-type center --transition-step 90 --transition-duration 2 --transition-fps 90
   gsettings set org.gnome.desktop.interface color-scheme prefer-light
   theme="Light Theme"
   hyprctl reload
