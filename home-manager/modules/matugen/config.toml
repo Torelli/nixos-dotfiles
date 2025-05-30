@@ -49,10 +49,6 @@ input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/themes/matugen.conf'
 post_hook = 'kitten themes --reload-in=all matugen'
 
-[templates.ghostty]
-input_path = '~/.config/matugen/templates/Matugen'
-output_path = '~/.config/ghostty/themes/Matugen'
-
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
