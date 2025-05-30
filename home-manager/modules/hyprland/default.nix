@@ -42,4 +42,6 @@ in
   home.file."/home/${username}/.config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 
   home.file."/home/${username}/.config/hypr/hypridle.conf".source = ./hypridle.conf;
+
+  home.file."/home/${username}/.config/hypr/hyprshade.conf".source = ./hyprshade.toml;
 }
