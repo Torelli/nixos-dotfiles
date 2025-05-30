@@ -20,6 +20,7 @@
       gh
       tesseract
       starship
+      glib
 
       #tools
       ripdrag
