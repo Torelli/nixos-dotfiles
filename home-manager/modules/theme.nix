@@ -8,6 +8,7 @@
       adw-gtk3
       colloid-icon-theme
       bibata-cursors
+      cantarell-fonts
     ];
     pointerCursor = {
       gtk.enable = true;
@@ -51,7 +52,8 @@
       name = "Colloid";
     };
     font = {
-      name = "Cantarell";
+      package = pkgs.cantarell-fonts;
+      name = "Cantarell Light";
       size = 11;
     };
   };
