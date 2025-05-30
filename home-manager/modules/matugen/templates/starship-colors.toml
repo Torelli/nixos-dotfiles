@@ -23,13 +23,12 @@ purple = '{{colors.purple.default.hex}}'
 yellow = '{{colors.yellow.default.hex}}'
 # Prompt symbols 
 [character]
-#success_symbol = "[🞈](color9 bold)"
-success_symbol = "[🞈](color9 bold)"
-error_symbol = "[🞈](@{error})"
-vimcmd_symbol = "[🞈](green)"
-vimcmd_replace_one_symbol = "[🞈](purple)"
-vimcmd_replace_symbol = "[🞈](purple)"
-vimcmd_visual_symbol = "[🞈](yellow)"
+success_symbol = "[](color9 bold)"
+error_symbol = "[](@{error})"
+vicmd_symbol = "[](#f9e2af)"
+vimcmd_replace_one_symbol = "[](purple)"
+vimcmd_replace_symbol = "[](purple)"
+vimcmd_visual_symbol = "[](yellow)"
 [os]
 disabled = false
 style = "bg:color1 fg:color2"
