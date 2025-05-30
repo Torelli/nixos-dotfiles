@@ -10,4 +10,4 @@ hyprctl reload
 #ags &
 
 # 启动hyprshde
-hyprshade auto
+# hyprshade auto
