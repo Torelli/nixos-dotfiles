@@ -98,10 +98,6 @@ output_path = "~/.config/vesktop/themes/HyprNoon.css"
 input_path = '~/.config/matugen/templates/mpv.conf'
 output_path = '~/.config/mpv/mpv.conf'
 
-[templates.zed]
-input_path = '~/.config/matugen/templates/zed.json'
-output_path = '~/.config/zed/themes/material-you.json'
-
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi.toml'
 output_path = '~/.config/yazi/theme.toml'
