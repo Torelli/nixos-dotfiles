@@ -22,6 +22,8 @@
       starship
       glib
       zoxide
+      bat
+      fastfetch
 
       #tools
       ripdrag
