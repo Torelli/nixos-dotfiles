@@ -326,7 +326,7 @@ function QSWindow(_gdkmonitor: Gdk.Monitor) {
   );
 }
 
-export default function (gdkmonitor: Gdk.Monitor) {
+export default function(gdkmonitor: Gdk.Monitor) {
   QSWindow(gdkmonitor);
 
   App.connect("window-toggled", (_, win) => {

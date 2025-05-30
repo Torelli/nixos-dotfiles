@@ -1,26 +1,5 @@
 [config]
-# ...
-reload_apps = true
-#set_wallpaper = true
-#wallpaper_tool = 'Swww'
-#prefix = '@'
-#swww_options = [
-#    "--transition-type",
-#    "fade",
-#    "--transition-step",
-#    "90",
-#    "--transition-duration",
-#    "2",
-#    "--transition-fps",
-#    "90",
-#]
-#[config.wallpaper]
-#command = "swww"
-#arguments = ["img", "--transition-type", "center"]
-#set = true
-# [config.reload_apps_list]
-# gtk_theme = true
-# kitty = true
+
 [config.wallpaper]
 command = "swww"
 arguments = [
