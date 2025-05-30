@@ -21,7 +21,6 @@
     color-scheme = "prefer-dark";
   };
   gtk = {
-    cursorTheme = pkgs.graphite-cursors;
     enable = true;
     gtk4.extraCss = config.gtk.gtk3.extraCss;
     gtk3.extraCss = ''
@@ -50,6 +49,10 @@
     iconTheme = {
       package = pkgs.colloid-icon-theme;
       name = "Colloid";
+    };
+    cursorTheme = {
+      package = pkgs.graphite-cursors;
+      name = "Graphite";
     };
     font = {
       name = "Cantarell";
