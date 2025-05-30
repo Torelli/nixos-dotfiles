@@ -28,6 +28,8 @@
         set fish_cursor_external line
 
         set fish_cursor_visual block
+
+        set fish_greeting
       '';
       shellAliases = {
         vim = "nvim";
