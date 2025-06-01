@@ -22,7 +22,13 @@ const options = mkOptions(
       separator: opt(true),
       start: opt(["launcher", "workspace", "activeapp"]),
       center: opt(["time"]),
-      end: opt(["recordbutton", "network_speed", "tray", "quicksetting", "powermenu"]),
+      end: opt([
+        "recordbutton",
+        "keylayout",
+        "tray",
+        "quicksetting",
+        "powermenu",
+      ]),
     },
     theme: {
       mode: opt(
