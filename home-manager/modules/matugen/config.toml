@@ -108,10 +108,10 @@ output_path = '~/.config/btop/themes/matugen.theme'
 input_path = '~/.config/matugen/templates/spotify.ini'
 output_path = '~/.config/spicetify/Themes/Comfy/color.ini'
 
-# [templates.tmux]
-# input_path = '~/.config/matugen/templates/tmux.conf'
-# output_path = '~/.tmux.conf'
-# post_hook = 'tmux source-file ~/.tmux.conf'
+[templates.tmux]
+input_path = '~/.config/matugen/templates/tmux.conf'
+output_path = '~/.tmux.conf'
+post_hook = 'tmux source-file ~/.tmux.conf'
 
 
 [templates.fish]

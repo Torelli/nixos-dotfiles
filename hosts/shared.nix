@@ -73,7 +73,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     source-han-sans
-    nerd-fonts.caskaydia-mono
+    nerd-fonts.caskaydia-cove
   ];
   fonts.fontDir.enable = true;
 

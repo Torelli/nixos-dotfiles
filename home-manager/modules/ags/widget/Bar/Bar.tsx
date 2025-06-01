@@ -26,8 +26,8 @@ const panelButton = {
   activeapp: () => <ActiveApp />,
   time: () => <TimePanelButton />,
   // notification: () => <NotifPanelButton />,
-  network_speed: () => <NetworkSpeedPanelButton />,
-  // keylayout: () => <KeyboardLayout />,
+  // network_speed: () => <NetworkSpeedPanelButton />,
+  keylayout: () => <KeyboardLayout />,
   tray: () => <TrayPanelButton />,
   quicksetting: () => <QSPanelButton />,
   battery: () => <Battery />,
@@ -108,7 +108,7 @@ function Bar({ gdkmonitor, ...props }: BarProps) {
   );
 }
 
-export default function (gdkmonitor: Gdk.Monitor) {
+export default function(gdkmonitor: Gdk.Monitor) {
   <Bar gdkmonitor={gdkmonitor} />;
 
   bar.position.subscribe(() => {
