@@ -9,7 +9,7 @@ export const WINDOW_NAME = "powermenu";
 const icons = {
   sleep: "weather-clear-night-symbolic",
   reboot: "system-reboot-symbolic",
-  logout: "system-log-out-symbolic",
+  logout: "system-lock-screen-symbolic",
   shutdown: "system-shutdown-symbolic",
   lockscreen: "system-lock-screen-symbolic",
 };
@@ -49,7 +49,7 @@ export default function PowerMenu(_gdkmonitor: Gdk.Monitor) {
           homogeneous
         >
           <SysButton action={"sleep"} label={"Sleep"} />
-          <SysButton action={"logout"} label={"Log Out"} />
+          <SysButton action={"lockscreen"} label={"Lock"} />
           <SysButton action={"reboot"} label={"Reboot"} />
           <SysButton action={"shutdown"} label={"Shutdown"} />
         </FlowBox>

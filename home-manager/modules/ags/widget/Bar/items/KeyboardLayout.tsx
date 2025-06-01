@@ -7,8 +7,8 @@ import BarItem from "../BarItem";
 function getLayout(layoutName: string) {
 	if (layoutName.includes("English")) {
 		return "en";
-	} else if (layoutName.includes("Russian")) {
-		return "ru";
+	} else if (layoutName.includes("Portuguese")) {
+		return "pt";
 	} else {
 		return "?";
 	}
@@ -26,7 +26,7 @@ export default () => {
 
 	// 添加子页面
 	stack.add_named(new Gtk.Label({ label: "en" }), "en");
-	stack.add_named(new Gtk.Label({ label: "ru" }), "ru");
+	stack.add_named(new Gtk.Label({ label: "pt" }), "pt");
 	stack.add_named(new Gtk.Label({ label: "?" }), "?");
 
 	// 连接信号
