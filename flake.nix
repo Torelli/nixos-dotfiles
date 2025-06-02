@@ -63,14 +63,6 @@
       inputs.astal.follows = "astal";
     };
     matugen.url = "github:InioX/Matugen?rev=0bd628f263b1d97f238849315f2ce3ab4439784e";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    transparent-nvim = {
-      url = "github:xiyaowong/transparent.nvim";
-      flake = false;
-    };
     hyprsettings = {
       url = "github:PoSayDone/hyprsettings";
       inputs.nixpkgs.follows = "nixpkgs";

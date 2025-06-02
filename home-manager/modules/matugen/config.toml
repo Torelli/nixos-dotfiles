@@ -125,7 +125,7 @@ post_hook = 'yes | fish_config theme save Matugen'
 # input_path = '~/.config/matugen/templates/nvim.vim'
 # output_path = '~/.cache/wal/colors-wal.vim'
 input_path = '~/.config/matugen/templates/catppuccin.lua'
-output_path = '~/.config/nvim/lua/plugins/catppuccin.lua'
+output_path = '~/.config/nvim/lua/custom/plugins/catppuccin.lua'
 
 [templates.tldr]
 input_path = '~/.config/matugen/templates/config.toml'

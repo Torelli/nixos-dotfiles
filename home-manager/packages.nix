@@ -26,6 +26,7 @@
       fastfetch
       lsd
       imagemagick
+      nvim
 
       #tools
       ripdrag
