@@ -64,7 +64,6 @@
       hunspellDicts.pt_BR
       hunspellDicts.en_US
       neovim
-      llvmPackages_20.clang-unwrapped
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
@@ -88,9 +87,9 @@
   programs = {
     nix-ld = {
       enable = true;
-      libraries = [
-        pkgs.stdenv.cc.cc
-        pkgs.openssl
+      libraries = with pkgs; [
+        stdenv.cc.cc
+        openssl
       ];
     };
     adb.enable = true;
