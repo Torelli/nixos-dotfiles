@@ -63,10 +63,5 @@
       inputs.astal.follows = "astal";
     };
     matugen.url = "github:InioX/Matugen?rev=0bd628f263b1d97f238849315f2ce3ab4439784e";
-    hyprsettings = {
-      url = "github:PoSayDone/hyprsettings";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 }

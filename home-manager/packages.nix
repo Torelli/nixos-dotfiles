@@ -63,12 +63,10 @@
       libsForQt5.qt5ct
       zenity
       zrythm
-      inputs.zen-browser.packages."${system}".default
       satty
       swappy
 
       #hypr
-      inputs.hyprsettings.packages."${pkgs.system}".default
       socat # for monitor connect script
       hyprpicker
       hyprshade
