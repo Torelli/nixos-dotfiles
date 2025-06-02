@@ -25,6 +25,7 @@
       bat
       fastfetch
       lsd
+      imagemagick
 
       #tools
       ripdrag

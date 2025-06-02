@@ -151,8 +151,8 @@ function Header() {
       </button>
       <button
         onClicked={() => {
+          bash(`waypaper`)
           App.toggle_window(WINDOW_NAME);
-          toggleWallpaperPicker();
         }}>
         <image
           iconName={"preferences-desktop-wallpaper-symbolic"}
