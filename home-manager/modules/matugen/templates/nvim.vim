@@ -1,4 +1,4 @@
-let background = "{{colors.surface.default.hex}}"
+" let background = "{{colors.surface.default.hex}}"
 let foreground = "{{colors.on_surface.default.hex}}"
 let cursor = "{{colors.on_surface.default.hex}}"
 let color0 = "{{colors.on_primary.default.hex}}"
