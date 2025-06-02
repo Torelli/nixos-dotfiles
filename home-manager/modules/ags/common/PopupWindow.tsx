@@ -1,5 +1,6 @@
 import { App, Astal, Gdk, Gtk } from "astal/gtk4";
 import { WindowProps } from "astal/gtk4/widget";
+import { bash } from "../lib/utils";
 
 function Padding({ winName }: { winName: string }) {
     return (
@@ -143,6 +144,22 @@ export default function PopupWindow({
             onKeyPressed={(_, keyval) => {
                 if (keyval === Gdk.KEY_Escape) {
                     App.toggle_window(name);
+                }
+                if (name === "powermenu") {
+                    switch (keyval) {
+                        case (Gdk.KEY_s):
+                            bash(`systemctl suspend`);
+                            break;
+                        case (Gdk.KEY_r):
+                            bash(`systemctl reboot`);
+                            break;
+                        case (Gdk.KEY_S):
+                            bash(`shutdown now`);
+                            break;
+                        case (Gdk.KEY_l):
+                            bash(`hyprlock -q`);
+                            break;
+                    }
                 }
             }}
             {...props}

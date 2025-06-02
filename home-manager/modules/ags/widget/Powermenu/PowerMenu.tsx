@@ -19,7 +19,6 @@ function SysButton({ action, label, key }: { action: string; label: string, key:
     <button
       cssClasses={["system-button"]}
       onClicked={() => powermenu.action(action)}
-      onKeyPressed={(e) => e.key === key && powermenu.action(action)}
     >
       <box vertical spacing={12} halign={Gtk.Align.CENTER} valign={Gtk.Align.CENTER}>
         <image iconName={icons[action]} cssClasses={["system-font"]} iconSize={Gtk.IconSize.LARGE} valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER} />
