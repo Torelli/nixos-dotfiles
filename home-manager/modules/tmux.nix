@@ -10,6 +10,7 @@
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.sensible
+      tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
     ];
 
