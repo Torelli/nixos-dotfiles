@@ -10,7 +10,6 @@
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
     ];
 
@@ -52,6 +51,8 @@
     bind -n M-H previous-window
     bind -n M-L next-window
 
+# set vi-mode
+    set-window-option -g mode-keys vi
 # keybindings
     bind-key -T copy-mode-vi v send-keys -X begin-selection
     bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
