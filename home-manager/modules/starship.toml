@@ -78,7 +78,7 @@ behind = "⇣${count}"
 modified = "!${count}"
 staged = "+${count}"
 stashed = "*${count}"
-format = "[](fg:color4)[(bg:color8 fg:color5) $all_status$ahead_behind](fg:color3 bg:color4)[](fg:color4) "
+format = "$all_status$ahead_behind](fg:color3 bg:color4)[](fg:color4) "
 
 [time]
 format = "[](fg:color8)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $time](fg:color3 bg:color4)[](fg:color4) "
