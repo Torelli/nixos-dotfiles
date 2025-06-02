@@ -1,5 +1,5 @@
 format = '''
-[](fg:color1 bg:color4)$os$username[ ](fg:color1 bg:color4)$directory[ ](fg:color4)$git_branch$rust$python
+[](fg:color1 bg:color4)$os$username[ ](fg:color1 bg:color4)$directory[ ](fg:color4)$git_branch$git_status$rust$python
 $character'''
 right_format = '''
 $time
@@ -69,7 +69,7 @@ truncation_symbol = "…/"
 "Workspace" = " "
 
 [git_branch]
-format = "[](fg:color8 bg:color4)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $branch$git_status](fg:color3 bg:color4)[](fg:color4) "
+format = "[](fg:color8 bg:color4)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $branch](fg:color3 bg:color4)[](fg:color4) "
 
 [git_status]
 ahead = "⇡${count}"
@@ -78,7 +78,7 @@ behind = "⇣${count}"
 modified = "!${count}"
 staged = "+${count}"
 stashed = "*${count}"
-format = '([$all_status$ahead_behind]($style))'
+format = "[](fg:color4)[(bg:color8 fg:color5) $all_status$ahead_behind](fg:color3 bg:color4)[](fg:color4) "
 
 [time]
 format = "[](fg:color8 bg:color4)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $time](fg:color3 bg:color4)[](fg:color4) "
