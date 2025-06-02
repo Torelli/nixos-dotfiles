@@ -69,7 +69,7 @@ truncation_symbol = "…/"
 "Workspace" = " "
 
 [git_branch]
-format = "[](fg:color8)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $branch](fg:color3 bg:color4)[](fg:color4)"
+format = "[](fg:color8)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $branch](fg:color3 bg:color4)"
 
 [git_status]
 ahead = "⇡${count}"
