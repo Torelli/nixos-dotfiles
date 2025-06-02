@@ -10,7 +10,6 @@
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
     ];
 
@@ -58,6 +57,11 @@
     bind-key -T copy-mode-vi v send-keys -X begin-selection
     bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
     bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+    bind -r C-j resize-pane -D 15
+    bind -r C-k resize-pane -U 15
+    bind -r C-h resize-pane -L 15
+    bind -r C-l resize-pane -R 15
 
     bind $ split-window -v -c "#{pane_current_path}"
     bind % split-window -h -c "#{pane_current_path}"
