@@ -14,15 +14,16 @@ const icons = {
   lockscreen: "system-lock-screen-symbolic",
 };
 
-function SysButton({ action, label }: { action: string; label: string }) {
+function SysButton({ action, label, key }: { action: string; label: string, key: string }) {
   return (
     <button
       cssClasses={["system-button"]}
       onClicked={() => powermenu.action(action)}
+      onKeyPressed={(e) => e.key === key && powermenu.action(action)}
     >
       <box vertical spacing={12} halign={Gtk.Align.CENTER} valign={Gtk.Align.CENTER}>
         <image iconName={icons[action]} cssClasses={["system-font"]} iconSize={Gtk.IconSize.LARGE} valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER} />
-        {/* <label label={label} /> */}
+        <label label={label} />
       </box>
     </button>
   );
@@ -48,10 +49,10 @@ export default function PowerMenu(_gdkmonitor: Gdk.Monitor) {
           }}
           homogeneous
         >
-          <SysButton action={"sleep"} label={"Sleep"} />
-          <SysButton action={"lockscreen"} label={"Lock"} />
-          <SysButton action={"reboot"} label={"Reboot"} />
-          <SysButton action={"shutdown"} label={"Shutdown"} />
+          <SysButton action={"sleep"} label={"Sleep"} key={"s"} />
+          <SysButton action={"lockscreen"} label={"Lock"} key={"l"} />
+          <SysButton action={"reboot"} label={"Reboot"} key={"r"} />
+          <SysButton action={"shutdown"} label={"Shutdown"} key={"R"} />
         </FlowBox>
       </box>
     </PopupWindow>
