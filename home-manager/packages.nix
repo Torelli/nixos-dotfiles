@@ -98,5 +98,6 @@
       sassc
       meson
       yarn
+      go
     ];
 }

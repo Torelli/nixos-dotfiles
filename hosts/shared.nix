@@ -64,6 +64,7 @@
       hunspellDicts.pt_BR
       hunspellDicts.en_US
       neovim
+      llvmPackages_20.clang-unwrapped
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
