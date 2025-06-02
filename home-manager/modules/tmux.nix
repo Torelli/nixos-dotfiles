@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, username, ... }: {
   programs.tmux = {
     enable = true;
     shortcut = "a";
