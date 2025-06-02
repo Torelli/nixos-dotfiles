@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ pkgs, ... }: {
   programs.tmux = {
     enable = true;
     shortcut = "a";
@@ -28,23 +28,21 @@
     set -g prefix C-Space
     bind C-Space send-prefix
 
-# Vim style pane selection
-    bind h select-pane -L
-    bind j select-pane -D
-    bind k select-pane -U
-    bind l select-pane -R
+    unbind C-Up
+    unbind C-Down
+    unbind C-Left
+    unbind C-Right
+
+    bind -n C-Left select-pane -L
+    bind -n C-Down select-pane -D
+    bind -n C-Up select-pane -U
+    bind -n C-Right select-pane -R
 
 # Start windows and panes at 1, not 0
     set -g base-index 1
     set -g pane-base-index 1
     set-window-option -g pane-base-index 1
     set-option -g renumber-windows on
-
-# Use Alt-arrow keys without prefix key to switch panes
-    bind -n M-Left select-pane -L
-    bind -n M-Right select-pane -R
-    bind -n M-Up select-pane -U
-    bind -n M-Down select-pane -D
 
 # Shift arrow to switch windows
     bind -n S-Left  previous-window
@@ -61,7 +59,7 @@
     bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
     bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
-    bind '"' split-window -v -c "#{pane_current_path}"
+    bind $ split-window -v -c "#{pane_current_path}"
     bind % split-window -h -c "#{pane_current_path}"
     '';
   };
