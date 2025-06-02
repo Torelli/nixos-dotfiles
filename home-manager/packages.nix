@@ -99,5 +99,7 @@
       meson
       yarn
       go
+      cargo
+      python314
     ];
 }
