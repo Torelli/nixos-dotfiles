@@ -1,24 +1,26 @@
 [config]
 
-[config.wallpaper]
-set = true
-command = "swww"
-arguments = [
-  "img",
-  "--transition-type",
-  "center",
-  "--transition-step",
-  "90",
-  "--transition-duration",
-  "2",
-  "--transition-fps",
-  "90",
-]
+# [config.wallpaper]
+# set = true
+# command = "swww"
+# arguments = [
+#   "img",
+#   "--transition-type",
+#   "center",
+#   "--transition-step",
+#   "90",
+#   "--transition-duration",
+#   "2",
+#   "--transition-fps",
+#   "90",
+# ]
+
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
 #pre_hook = 'ags -q '
 post_hook = 'fish ~/.config/matugen/scripts/reload'
+
 [templates.gitui]
 input_path = '~/.config/matugen/templates/gitui.ron'
 output_path = '~/.config/gitui/theme.ron'
