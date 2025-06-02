@@ -3,6 +3,7 @@ import { Gtk } from "astal/gtk4";
 import PanelButton from "../PanelButton";
 import AstalHyprland from "gi://AstalHyprland?version=0.1";
 import BarItem from "../BarItem";
+import { bash } from "../../../lib/utils";
 
 function getLayout(layoutName: string) {
 	if (layoutName.includes("English")) {
@@ -42,7 +43,13 @@ export default () => {
 
 	return (
 		<BarItem cssName="bar__keyboard-layout">
-			{stack}
+			<button
+				onClicked={() => {
+					bash(`hyprctl switchxkblayout all next`);
+				}}
+			>
+				{stack}
+			</button>
 		</BarItem>
 	);
 };
