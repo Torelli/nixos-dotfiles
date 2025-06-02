@@ -10,7 +10,7 @@ export default function LauncherPanelButton() {
 			onClicked={() => App.toggle_window(WINDOW_NAME)}
 		>
 			<box>
-				<image iconName={"nix-snowflake"} />
+				<image iconName={"nix-snowflake-white"} />
 			</box>
 
 		</PanelButton>
