@@ -15,6 +15,8 @@
 
     extraConfig = ''
 
+    set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
+
     set-option -sa terminal-overrides ",xterm*:Tc"
     set -g mouse on
     set -g focus-events on
@@ -37,23 +39,23 @@
     bind -n C-Up select-pane -U
     bind -n C-Right select-pane -R
 
-# Start windows and panes at 1, not 0
+    # Start windows and panes at 1, not 0
     set -g base-index 1
     set -g pane-base-index 1
     set-window-option -g pane-base-index 1
     set-option -g renumber-windows on
 
-# Shift arrow to switch windows
+    # Shift arrow to switch windows
     bind -n S-Left  previous-window
     bind -n S-Right next-window
 
-# Shift Alt vim keys to switch windows
+    # Shift Alt vim keys to switch windows
     bind -n M-H previous-window
     bind -n M-L next-window
 
-# set vi-mode
+    # set vi-mode
     set-window-option -g mode-keys vi
-# keybindings
+    # keybindings
     bind-key -T copy-mode-vi v send-keys -X begin-selection
     bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
     bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
@@ -67,4 +69,6 @@
     bind % split-window -h -c "#{pane_current_path}"
     '';
   };
+
+  home.file."/home/${username}/.config/tmux/tmux-nerd-font-window-name.yml".source = ./tmux/tmux-nerd-font-window-name.yml;
 }
