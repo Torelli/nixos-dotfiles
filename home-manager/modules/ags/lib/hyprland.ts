@@ -1,4 +1,3 @@
-
 import { App } from "astal/gtk4";
 import AstalHyprland from "gi://AstalHyprland?version=0.1";
 import options from "../option";
@@ -27,15 +26,15 @@ export function windowAnimation() {
 }
 
 function windowBlur() {
-  const noIgnorealpha = ["verification", "powermenu"];
+  // const noIgnorealpha = ["verification", "powermenu"];
 
   sendBatch(
     App.get_windows().flatMap(({ namespace }: any) => {
       return [
         `layerrule blur, ${namespace}`,
-        noIgnorealpha.some((skip) => namespace?.includes(skip))
-          ? ""
-          : `layerrule ignorealpha 0.3, ${namespace}`,
+        // noIgnorealpha.some((skip) => namespace?.includes(skip))
+        //   ? ""
+        //   : `layerrule ignorealpha 0.3, ${namespace}`,
       ];
     }),
   );
