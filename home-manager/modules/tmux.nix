@@ -1,4 +1,4 @@
-{ pkgs, username, ... }: {
+{ pkgs, ... }: {
   programs.tmux = {
     enable = true;
     shortcut = "a";
@@ -14,8 +14,6 @@
     ];
 
     extraConfig = ''
-
-    set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
 
     set-option -sa terminal-overrides ",xterm*:Tc"
     set -g mouse on
@@ -69,6 +67,4 @@
     bind % split-window -h -c "#{pane_current_path}"
     '';
   };
-
-  home.file."/home/${username}/.config/tmux/tmux-nerd-font-window-name.yml".source = ./tmux/tmux-nerd-font-window-name.yml;
 }
