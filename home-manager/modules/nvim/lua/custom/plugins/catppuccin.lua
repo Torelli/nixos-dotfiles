@@ -18,7 +18,7 @@ return {
 					indent_scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
 				},
 			},
-			transparent_background = false,
+			transparent_background = true,
 			background = {
 				dark = "mocha",
 				light = "latte",
