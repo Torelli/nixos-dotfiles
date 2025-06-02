@@ -37,6 +37,8 @@
       wayshot
       usbguard
       usbguard-notifier
+      wl-kbptr
+      wlrctl
 
       #gui
       onlyoffice-desktopeditors
