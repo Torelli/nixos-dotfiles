@@ -148,15 +148,19 @@ export default function PopupWindow({
                 if (name === "powermenu") {
                     switch (keyval) {
                         case (Gdk.KEY_s):
+                            App.toggle_window(name);
                             bash(`systemctl suspend`);
                             break;
                         case (Gdk.KEY_r):
+                            App.toggle_window(name);
                             bash(`systemctl reboot`);
                             break;
                         case (Gdk.KEY_S):
+                            App.toggle_window(name);
                             bash(`shutdown now`);
                             break;
                         case (Gdk.KEY_l):
+                            App.toggle_window(name);
                             bash(`hyprlock -q`);
                             break;
                     }
