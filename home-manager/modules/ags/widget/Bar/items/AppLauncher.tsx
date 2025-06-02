@@ -10,8 +10,7 @@ export default function LauncherPanelButton() {
 			onClicked={() => App.toggle_window(WINDOW_NAME)}
 		>
 			<box>
-				<image iconName={"file-search-symbolic"} />
-				<label label={"Applications"} />
+				<image iconName={"nix-snowflake"} />
 			</box>
 
 		</PanelButton>
