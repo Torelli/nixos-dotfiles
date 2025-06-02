@@ -14,7 +14,7 @@ const icons = {
   lockscreen: "system-lock-screen-symbolic",
 };
 
-function SysButton({ action, label, key }: { action: string; label: string, key: string }) {
+function SysButton({ action, label }: { action: string; label: string, key: string }) {
   return (
     <button
       cssClasses={["system-button"]}
@@ -22,7 +22,7 @@ function SysButton({ action, label, key }: { action: string; label: string, key:
     >
       <box vertical spacing={12} halign={Gtk.Align.CENTER} valign={Gtk.Align.CENTER}>
         <image iconName={icons[action]} cssClasses={["system-font"]} iconSize={Gtk.IconSize.LARGE} valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER} />
-        <label label={label} />
+        {/* <label label={label} */}
       </box>
     </button>
   );
