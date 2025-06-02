@@ -16,4 +16,4 @@ else
     set theme "Dark Theme"
 end
 
-notify-send The theme has been changed "New theme: $theme" --icon="$HOME/.config/waypaper/scripts/icon.svg"
+notify-send Theme has been changed "Current theme: $theme" --icon="$HOME/.config/waypaper/scripts/icon.svg"
