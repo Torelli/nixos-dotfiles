@@ -14,7 +14,6 @@ in
     ./modules/git.nix
     ./modules/theme.nix
     ./modules/chromium.nix
-    ./modules/nvim
   ];
 
   dconf = {
