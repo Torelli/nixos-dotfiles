@@ -66,6 +66,7 @@
       neovim
       clang
       clang-tools
+      firefoxpwa
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
@@ -100,6 +101,11 @@
       enable = true;
     };
     fish.enable = true;
+    firefox = {
+      enable = true;
+      package = pkgs.firefox;
+      nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+    };
   };
 
   # services
