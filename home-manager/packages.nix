@@ -26,6 +26,7 @@
       fastfetch
       lsd
       imagemagick
+      playerctl
 
       #tools
       ripdrag
