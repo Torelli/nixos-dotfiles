@@ -121,7 +121,7 @@ input_path = '~/.config/matugen/templates/matugen.theme'
 output_path = '~/.config/fish/themes/Matugen.theme'
 post_hook = 'yes | fish_config theme save Matugen'
 
-# [templates.neovim]
+[templates.neovim]
 # input_path = '~/.config/matugen/templates/nvim.vim'
 # output_path = '~/.cache/wal/colors-wal.vim'
 # input_path = '~/.config/matugen/templates/catppuccin.lua'

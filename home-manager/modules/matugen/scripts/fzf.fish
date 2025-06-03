@@ -1,7 +1,7 @@
 #!/bin/env fish
 set -Ux FZF_DEFAULT_OPTS "\
-  --color=bg+:#423733,bg:#1a120e,spinner:#d2c78f,hl:#ffb595 \
-  --color=fg:#f1dfd8,header:#ffb595,info:#d2c78f,pointer:#f1dfd8 \
-  --color=marker:#ffb4ab,fg+:#f1dfd8,prompt:#ffb595,hl+:#ffb595 \
-  --color=selected-bg:#423733 \
+  --color=bg+:#39383f,bg:#131318,spinner:#e9b9d3,hl:#c1c1ff \
+  --color=fg:#e4e1e9,header:#c1c1ff,info:#e9b9d3,pointer:#e4e1e9 \
+  --color=marker:#ffb4ab,fg+:#e4e1e9,prompt:#c1c1ff,hl+:#c1c1ff \
+  --color=selected-bg:#39383f \
   --multi"

@@ -1,0 +1,102 @@
+format = '''
+[](fg:color1)$os$username[ ](fg:color1 bg:color4)$directory[ ](fg:color4)$git_branch$git_status$rust$python
+$character'''
+right_format = '''
+$time
+'''
+add_newline = false
+palette = 'colors'
+
+[palettes.colors]
+mustard = '#af8700'                                  # example
+color1 = '{{colors.primary_fixed_dim.default.hex}}'
+color2 = '{{colors.on_primary.default.hex}}'
+color3 = '{{colors.on_surface_variant.default.hex}}'
+color4 = '{{colors.surface_container.default.hex}}'
+color5 = '{{colors.on_primary.default.hex}}'
+color6 = '{{colors.surface_dim.default.hex}}'
+color7 = '{{colors.surface.default.hex}}'
+color8 = '{{colors.primary.default.hex}}'
+color9 = '{{colors.tertiary.default.hex}}'
+green = '{{colors.green.default.hex}}'
+purple = '{{colors.purple.default.hex}}'
+yellow = '{{colors.yellow.default.hex}}'
+# Prompt symbols 
+[character]
+success_symbol = "[](color9 bold)"
+error_symbol = "[](@{error})"
+vicmd_symbol = "[](#f9e2af)"
+vimcmd_replace_one_symbol = "[](purple)"
+vimcmd_replace_symbol = "[](purple)"
+vimcmd_visual_symbol = "[](yellow)"
+[os]
+disabled = false
+style = "bg:color1 fg:color2"
+[os.symbols]
+Windows = "󰍲 "
+Ubuntu = "󰕈 "
+SUSE = " "
+Raspbian = "󰐿 "
+Mint = "󰣭 "
+Macos = "󰀵 "
+Manjaro = " "
+Linux = "󰌽 "
+Gentoo = "󰣨 "
+Fedora = "󰣛 "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = "󰣇 "
+Artix = "󰣇 "
+EndeavourOS = " "
+CentOS = " "
+Debian = "󰣚 "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+Pop = " "
+NixOS = " "
+[username]
+style_user = 'bg:color1 fg:color2'
+style_root = 'bg:color1 fg:color2'
+format = '[$user]($style)'
+show_always = true
+[directory]
+format = "[$path ](fg:color3 bg:color4)"
+truncation_length = 3
+truncate_to_repo = false
+truncation_symbol = "…/"
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Videos" = " "
+"Workspace" = " "
+
+[git_branch]
+format = "[](fg:color8)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $branch](fg:color3 bg:color4)"
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+modified = "!${count}"
+staged = "+${count}"
+stashed = "*${count}"
+format = "[(bg:color8 fg:color5) $all_status$ahead_behind](fg:color3 bg:color4)[](fg:color4) "
+
+
+[time]
+format = "[](fg:color8)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $time](fg:color3 bg:color4)[](fg:color4) "
+disabled = false
+time_format = "%R"                                                                                                                                    # Hour:Minute Format
+
+[python]
+format = "[](fg:color8)[${symbol}${version}](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5)( ${virtualenv})](fg:color3 bg:color4)[](fg:color4) "
+symbol = ' '
+# pyenv_version_name = true
+pyenv_prefix = 'venv'
+
+[rust]
+symbol = ' '
+format = "[](fg:color8)[${symbol}${version}](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5)( ${virtualenv})](fg:color3 bg:color4)[](fg:color4) "
