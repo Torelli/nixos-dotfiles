@@ -14,6 +14,7 @@ in
     ./modules/git.nix
     ./modules/theme.nix
     ./modules/chromium.nix
+    ./modules/firefox.nix
   ];
 
   dconf = {
