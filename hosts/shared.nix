@@ -101,6 +101,11 @@
       enable = true;
     };
     fish.enable = true;
+    firefox = {
+      enable = true;
+      package = pkgs.firefox;
+      nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+    };
   };
 
   # services
