@@ -4,11 +4,13 @@ import { bind, Binding } from "astal";
 import PanelButton from "../PanelButton";
 import Pango from "gi://Pango?version=1.0";
 
-// 帮助函数：查找图标
 function lookUpIcon(iconName: string | null | undefined): string {
-  // 添加空值检查
   if (!iconName) {
     return "application-x-executable";
+  }
+
+  if (iconName === "zen") {
+    return "zen-browser"
   }
 
   const display = Gdk.Display.get_default();
@@ -17,17 +19,15 @@ function lookUpIcon(iconName: string | null | undefined): string {
     return "application-x-executable";
   }
   const iconTheme = Gtk.IconTheme.get_for_display(display);
-  // 尝试多种可能的图标名称格式
   const possibleNames = [
-    iconName.toLowerCase(),                    // 全小写
-    iconName.toLowerCase().replace(/\s/g, '-'), // 替换空格为横线
-    iconName.toLowerCase().replace(/\s/g, ''),  // 移除空格
+    iconName.toLowerCase(),
+    iconName.toLowerCase().replace(/\s/g, '-'),
+    iconName.toLowerCase().replace(/\s/g, ''),
   ];
   for (const name of possibleNames) {
     if (iconTheme.has_icon(name)) {
       return name;
     }
-    // 尝试常见的图标命名方式
     const variants = [
       `com.${name}`,
       `org.${name}`,
@@ -40,7 +40,6 @@ function lookUpIcon(iconName: string | null | undefined): string {
       }
     }
   }
-  // 如果找不到图标，返回一个默认图标
   return "application-x-executable";
 }
 
