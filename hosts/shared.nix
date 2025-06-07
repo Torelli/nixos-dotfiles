@@ -87,6 +87,12 @@
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "powersave";
+    powerDownCommands = ''
+      echo enabled > /sys/bus/usb/devices/usb1/power/wakeup
+      echo enabled > /sys/bus/usb/devices/usb2/power/wakeup
+      echo enabled > /sys/bus/usb/devices/usb3/power/wakeup
+      echo enabled > /sys/bus/usb/devices/usb4/power/wakeup
+    '';
   };
 
   #programs
@@ -125,11 +131,11 @@
       jack.enable = true;
       configPackages = [
         (pkgs.writeTextDir "share/wireplumber/bluetooth.lua.d/51-bluez-config.lua" ''
-          bluez_monitor.properties = {
-          	["bluez5.enable-sbc-xq"] = true,
-          	["bluez5.enable-msbc"] = true,
-          	["bluez5.enable-hw-volume"] = true,
-          	["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+            bluez_monitor.properties = {
+          ["bluez5.enable-sbc-xq"] = true,
+          ["bluez5.enable-msbc"] = true,
+          ["bluez5.enable-hw-volume"] = true,
+          ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
           }
         '')
       ];
@@ -228,3 +234,4 @@
 
   system.stateVersion = "25.05";
 }
+
