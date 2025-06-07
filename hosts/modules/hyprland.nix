@@ -32,13 +32,6 @@
       extraConfig = ''
         polkit.addRule(function(action, subject) {
             if (action.id == "org.freedesktop.policykit.exec" &&
-                action.lookup("command_line") == "/run/current-system/sw/bin/bash /home/torelli/.config/nekoray/config/vpn-run-root.sh" &&
-                subject.isInGroup("wheel")) {
-                return polkit.Result.YES;
-            }
-        });
-        polkit.addRule(function(action, subject) {
-            if (action.id == "org.freedesktop.policykit.exec" &&
                 RegExp('/run/current-system/sw/bin/pkill -2 -P .*').test(action.lookup("command_line")) &&
                 subject.isInGroup("wheel")) {
                 return polkit.Result.YES;
@@ -54,10 +47,6 @@
           commands = [
             {
               command = "/run/current-system/sw/bin/ec_probe";
-              options = [ "NOPASSWD" ];
-            }
-            {
-              command = "${pkgs.nekoray}/bin/nekoray";
               options = [ "NOPASSWD" ];
             }
           ];

@@ -18,7 +18,6 @@
       killall
       p7zip
       gh
-      tesseract
       starship
       glib
       zoxide
@@ -30,7 +29,6 @@
 
       #tools
       ripdrag
-      nekoray
       wineWowPackages.waylandFull
       winetricks
       pamixer
@@ -68,7 +66,6 @@
       swappy
 
       #hypr
-      socat # for monitor connect script
       hyprpicker
       hyprshade
       hypridle
