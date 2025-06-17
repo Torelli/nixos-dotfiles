@@ -26,6 +26,7 @@
       lsd
       imagemagick
       playerctl
+      heroku
 
       #tools
       ripdrag
