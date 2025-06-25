@@ -30,6 +30,11 @@
         set fish_cursor_visual block
 
         set fish_greeting
+
+        fish_add_path --prepend /home/torelli/.npm-packages/bin
+
+        set -x NODE_PATH /home/torelli/.npm-packages/lib/node_modules
+
         fastfetch
       '';
       shellAliases = {
