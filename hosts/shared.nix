@@ -53,6 +53,7 @@
   environment = {
     systemPackages = with pkgs; [
       pkgs.distrobox
+      boxbuddy
       shared-mime-info
       polkit_gnome
       home-manager
