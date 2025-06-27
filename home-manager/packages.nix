@@ -27,6 +27,7 @@
       imagemagick
       playerctl
       heroku
+      unzip
 
       #tools
       ripdrag
