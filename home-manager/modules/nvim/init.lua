@@ -547,66 +547,66 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        ts_ls = {
-          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = vim.fn.stdpath 'data' ..
-                    '/mason/packages/vue-language-server/node_modules/@vue/language-server',
-                languages = { 'vue' }
-              },
-            },
-            settings = {
-              typescript = {
-                tsserver = {
-                  useSyntaxServer = false,
-                },
-                inlayHints = {
-                  includeInlayParameterNameHints = 'all',
-                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                  includeInlayFunctionParameterTypeHints = true,
-                  includeInlayVariableTypeHints = true,
-                  includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                  includeInlayPropertyDeclarationTypeHints = true,
-                  includeInlayFunctionLikeReturnTypeHints = true,
-                  includeInlayEnumMemberValueHints = true,
-                },
-              },
-            },
-          }
-        },
-
-        vue_ls = {
-          init_options = {
-            vue = {
-              hybridMode = false,
-            },
-          },
-          settings = {
-            typescript = {
-              inlayHints = {
-                enumMemberValues = {
-                  enabled = true,
-                },
-                functionLikeReturnTypes = {
-                  enabled = true,
-                },
-                propertyDeclarationTypes = {
-                  enabled = true,
-                },
-                parameterTypes = {
-                  enabled = true,
-                  supressWhenArgumentMatchesName = true,
-                },
-                variableTypes = {
-                  enabled = true,
-                },
-              }
-            }
-          }
-        },
+        -- ts_ls = {
+        --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        --   init_options = {
+        --     plugins = {
+        --       {
+        --         name = "@vue/typescript-plugin",
+        --         location = vim.fn.stdpath 'data' ..
+        --             '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+        --         languages = { 'vue' }
+        --       },
+        --     },
+        --     settings = {
+        --       typescript = {
+        --         tsserver = {
+        --           useSyntaxServer = false,
+        --         },
+        --         inlayHints = {
+        --           includeInlayParameterNameHints = 'all',
+        --           includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        --           includeInlayFunctionParameterTypeHints = true,
+        --           includeInlayVariableTypeHints = true,
+        --           includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+        --           includeInlayPropertyDeclarationTypeHints = true,
+        --           includeInlayFunctionLikeReturnTypeHints = true,
+        --           includeInlayEnumMemberValueHints = true,
+        --         },
+        --       },
+        --     },
+        --   }
+        -- },
+        --
+        -- vue_ls = {
+        --   init_options = {
+        --     vue = {
+        --       hybridMode = false,
+        --     },
+        --   },
+        --   settings = {
+        --     typescript = {
+        --       inlayHints = {
+        --         enumMemberValues = {
+        --           enabled = true,
+        --         },
+        --         functionLikeReturnTypes = {
+        --           enabled = true,
+        --         },
+        --         propertyDeclarationTypes = {
+        --           enabled = true,
+        --         },
+        --         parameterTypes = {
+        --           enabled = true,
+        --           supressWhenArgumentMatchesName = true,
+        --         },
+        --         variableTypes = {
+        --           enabled = true,
+        --         },
+        --       }
+        --     }
+        --   }
+        -- },
         --
 
         lua_ls = {
@@ -644,6 +644,8 @@ require('lazy').setup({
       --
       --  You can press `g?` for help in this menu
       require('mason').setup()
+
+      require('lspconfig').clangd.setup({})
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
@@ -688,7 +690,7 @@ require('lazy').setup({
         html = { "prettier" },
         json = { "prettier" },
         markdown = { "prettier" },
-        typescript = { "prettier" },
+        -- typescript = { "prettier" },
         jsx = { "prettier" },
       },
     },
