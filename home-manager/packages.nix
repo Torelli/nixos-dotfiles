@@ -65,6 +65,7 @@
       zrythm
       satty
       swappy
+      vscode
 
       #hypr
       hyprpicker

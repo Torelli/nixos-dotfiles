@@ -116,6 +116,7 @@
       package = pkgs.firefox;
       nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
     };
+    java.enable = true;
   };
 
   # services
