@@ -15,6 +15,7 @@ import { idle } from "astal";
 import { WindowProps } from "astal/gtk4/widget";
 import TrayPanelButton from "./items/Tray";
 import PowermenuButton from "./items/Powermenu";
+import AstalHyprland from "gi://AstalHyprland";
 import NotifiCount from "./items/NotifiCount";
 
 const { bar } = options;
@@ -22,7 +23,7 @@ const { start, center, end } = bar;
 
 const panelButton = {
   launcher: () => <LauncherPanelButton />,
-  workspace: () => <WorkspacesPanelButton />,
+  workspace: (hprMonitor: AstalHyprland.Monitor) => <WorkspacesPanelButton hprMonitor={hprMonitor} />,
   activeapp: () => <ActiveApp />,
   time: () => <TimePanelButton />,
   // notification: () => <NotifPanelButton />,
@@ -36,12 +37,21 @@ const panelButton = {
   // notifycount: () => <NotifiCount />,
 };
 
-function Start() {
+type StartProps = {
+  hprMonitor: AstalHyprland.Monitor;
+};
+
+function Start({ hprMonitor }: StartProps) {
   return (
     <box halign={Gtk.Align.START}>
       {start((s) => [
         ...separatorBetween(
-          s.map((s) => panelButton[s]()),
+          s.map((s) =>
+            s === 'workspace'
+              ? panelButton[s](hprMonitor)
+              : panelButton[s]()
+
+          ),
           Gtk.Orientation.VERTICAL,
         ),
       ])}
@@ -77,8 +87,9 @@ function End() {
 
 type BarProps = WindowProps & {
   gdkmonitor: Gdk.Monitor;
+  hyprlandMonitor: AstalHyprland.Monitor;
 };
-function Bar({ gdkmonitor, ...props }: BarProps) {
+function Bar({ gdkmonitor, hyprlandMonitor, ...props }: BarProps) {
   const { TOP, LEFT, RIGHT, BOTTOM } = Astal.WindowAnchor;
   const anc = bar.position.get() == "top" ? TOP : BOTTOM;
 
@@ -100,7 +111,7 @@ function Bar({ gdkmonitor, ...props }: BarProps) {
       {...props}
     >
       <centerbox cssClasses={["bar-container"]}>
-        <Start />
+        <Start hprMonitor={hyprlandMonitor} />
         <Center />
         <End />
       </centerbox>
@@ -109,7 +120,9 @@ function Bar({ gdkmonitor, ...props }: BarProps) {
 }
 
 export default function(gdkmonitor: Gdk.Monitor) {
-  <Bar gdkmonitor={gdkmonitor} />;
+  const hyprlandMonitor = AstalHyprland.get_default().get_monitor_by_name(gdkmonitor.get_connector());
+
+  <Bar gdkmonitor={gdkmonitor} hyprlandMonitor={hyprlandMonitor} />;
 
   bar.position.subscribe(() => {
     App.toggle_window("bar");
@@ -117,7 +130,7 @@ export default function(gdkmonitor: Gdk.Monitor) {
     barWindow.set_child(null);
     App.remove_window(App.get_window("bar")!);
     idle(() => {
-      <Bar gdkmonitor={gdkmonitor} />;
+      <Bar gdkmonitor={gdkmonitor} hyprlandMonitor={hyprlandMonitor} />;
     });
   });
 }

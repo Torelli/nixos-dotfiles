@@ -43,13 +43,13 @@ export default () => {
 
 	return (
 		<BarItem cssName="bar__keyboard-layout">
-			<button
+			<PanelButton
 				onClicked={() => {
 					bash(`hyprctl switchxkblayout all next`);
 				}}
 			>
 				{stack}
-			</button>
+			</PanelButton>
 		</BarItem>
 	);
 };

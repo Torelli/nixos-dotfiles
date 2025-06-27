@@ -25,11 +25,20 @@
       transition: all 0.3s;
       background-color: $inverse_surface_transparent_variant;
       border-radius: 30px;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.5, 1.5);
+      }
 
       &.active {
         min-width: 2.2rem;
         min-height: 1rem;
         background-color: $primary;
+
+        &:hover {
+          transform: scale(1, 1);
+        }
       }
 
       &.occupied {

@@ -10,7 +10,7 @@ function lookUpIcon(iconName: string | null | undefined): string {
   }
 
   if (iconName === "zen") {
-    return "zen-browser"
+    return "zen_browser"
   }
 
   const display = Gdk.Display.get_default();

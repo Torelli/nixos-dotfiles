@@ -101,9 +101,9 @@ function setupAppsFolderMonitor() {
       }
     });
 
-    console.log('成功设置 /usr/share/applications 目录监控');
+    console.log('Directory monitoring /usr/share/applications configured successfully');
   } catch (error) {
-    console.error("监控目录失败:", error);
+    console.error("Failure monitoring directory:", error);
   }
 }
 
