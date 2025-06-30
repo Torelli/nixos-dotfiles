@@ -1,5 +1,6 @@
 { inputs
 , pkgs
+, pkgs-stable
 , ...
 }: {
   home.packages = with pkgs;
@@ -63,7 +64,7 @@
       kdePackages.qt6ct
       libsForQt5.qt5ct
       zenity
-      zrythm
+      pkgs-stable.zrythm
       satty
       swappy
       vscode

@@ -3,6 +3,7 @@
 
   outputs =
     inputs @ { nixpkgs
+    , nixpkgs-stable
     , home-manager
     , ...
     }:
@@ -29,7 +30,13 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.torelli = import ./home-manager/home.nix;
-                extraSpecialArgs = { inherit inputs username system; };
+                extraSpecialArgs = {
+                  inherit inputs username system;
+                  pkgs-stable = import nixpkgs-stable {
+                    inherit inputs username system;
+                    config.allowUnfree = true;
+                  };
+                };
               };
             }
           ];
@@ -38,6 +45,7 @@
     };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
