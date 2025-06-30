@@ -62,11 +62,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     astal = {
-      url = "github:Aylur/astal";
+      url = "github:Aylur/astal?rev=7d28889727b80e0a68c20c2f0f1926ddc96a7be6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
-      url = "github:Aylur/ags";
+      url = "github:Aylur/ags?rev=3ed9737bdbc8fc7a7c7ceef2165c9109f336bff6";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.astal.follows = "astal";
     };
