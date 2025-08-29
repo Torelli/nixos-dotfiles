@@ -59,7 +59,6 @@
       simple-scan
       transmission_4-gtk
       ghex
-      hiddify-app
       spotify
       kdePackages.qt6ct
       libsForQt5.qt5ct
